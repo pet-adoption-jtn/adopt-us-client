@@ -16,13 +16,13 @@ function RegisterPage(props) {
           <div className="w3-card-4 p-3 bg-light" style={{ borderRadius: '10px' }}>
             <h1 className="titleLogin">Sign up</h1>
             <form>
-              <input type="email" style={{ borderRadius: '50px' }} className="form-control my-3" placeholder="E-mail"></input>
-              <input type="password" style={{ borderRadius: '50px' }} className="form-control my-3" placeholder="Password"></input>
-              <input type="text" style={{ borderRadius: '50px' }} className="form-control my-3" placeholder="User Name"></input>
-              <input type="text" style={{ borderRadius: '50px' }} className="form-control my-3" placeholder="Address"></input>
-              <input type="text" style={{ borderRadius: '50px' }} className="form-control my-3" placeholder="No Handphone"></input>
+              <input type="email" className="BorRegis form-control my-3" placeholder="E-mail"></input>
+              <input type="password" className="BorRegis form-control my-3" placeholder="Password"></input>
+              <input type="text" className="BorRegis form-control my-3" placeholder="User Name"></input>
+              <input type="text" className="BorRegis form-control my-3" placeholder="Address"></input>
+              <input type="text" className="BorRegis form-control my-3" placeholder="No Handphone"></input>
               <div className="mb-4" style={{ paddingRight: '50px', paddingLeft: '50px' }}>
-                <button type="submit" style={{ borderRadius: '50px' }} className="btn btn-outline-dark form-control">Sign up</button>
+                <button type="submit" className="BorRegis btn btn-outline-dark form-control">Sign up</button>
               </div>
             </form>
             <hr/>
