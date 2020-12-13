@@ -13,8 +13,8 @@ export default function Navbar() {
               <li className="nav-item">
                   <p className="content nav-link" style={{fontSize: '24px'}}><i className="fa fa-heart-o"></i></p>
               </li>
-              <li className="nav-item pt-1">
-                <p className="content nav-link">Login</p>
+              <li className="nav-item pt-1" style={{marginLeft: '20px', marginRight: '15px'}}>
+                <p className="content nav-link">Log In</p>
               </li>
               <li className="nav-item pt-1">
                 <p className="content nav-link">Register</p>

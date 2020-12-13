@@ -47,3 +47,27 @@ body {
 .icon-heart:hover {
   cursor: pointer;
 }
+
+.icon-heart {
+  background-color: #fff;
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  padding-top: 4px;
+  padding-right: 1px;
+}
+
+.btn1 {
+  border-color: #ab0b6b;
+  background-color: #ab0b6b;
+  color: #fff;
+  width: 100px;
+  border-radius: 25px;
+}
+
+.btn1:hover {
+  border-color: #fff;
+  background-color: #fff;
+  color: #ab0b6b;
+  width: 100px;
+}
