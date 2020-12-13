@@ -5,7 +5,8 @@ const initialState = {
   petList: [],
   pet_detail: {},
   load_detail: true,
-  favorites: []
+  favorites: [],
+  owners_pets: []
 }
 
 function reducer(state = initialState, action) {
@@ -17,6 +18,8 @@ function reducer(state = initialState, action) {
       return { ...state, load_detail: payload }
     case "SET_FAVORITES":
       return { ...state, favorites: payload }
+    case "SET_OWNER_PET": 
+      return { ...state, owners_pets: payload }
     default:
       return state
   }

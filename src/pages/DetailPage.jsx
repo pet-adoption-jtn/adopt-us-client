@@ -34,7 +34,7 @@ export default function DetailPage (props) {
 
   return (
     <>
-    <div className="container my-2 bg-dark">
+    <div className="container my-2">
       <div id="MyCarousel" className="carousel slide" data-ride="carousel">
         <div className="carousel-inner">
           {
@@ -68,11 +68,24 @@ export default function DetailPage (props) {
               <hr/>
               <div className="card-text">
                 <h3>About</h3>
-                <p>Type : {pet_detail.type.charAt(0).toUpperCase() + pet_detail.type.slice(1)}</p>
-                <p>Color: {pet_detail.color}</p>
-                <p>Breed: {pet_detail.breed}</p>
-                <p>Age  : {pet_detail.age.charAt(0).toUpperCase() + pet_detail.age.slice(1)}</p>
-                <p>Gender: {pet_detail.gender.charAt(0).toUpperCase() + pet_detail.gender.slice(1)}</p>
+                <div className="row mt-3">
+                  <div className="col-2">
+                    <p><strong>Name</strong></p>
+                    <p><strong>Type</strong></p>
+                    <p><strong>Breed</strong></p>
+                    <p><strong>Age</strong></p>
+                    <p><strong>Gender</strong></p>
+                    <p><strong>Color</strong></p>
+                  </div>
+                  <div className="col-6">
+                    <p>{pet_detail.name}</p>
+                    <p>{pet_detail.type.charAt(0).toUpperCase() + pet_detail.type.slice(1)}</p>
+                    <p>{pet_detail.breed}</p>
+                    <p>{pet_detail.age.charAt(0).toUpperCase() + pet_detail.age.slice(1)}</p>
+                    <p>{pet_detail.gender.charAt(0).toUpperCase() + pet_detail.gender.slice(1)}</p>
+                    <p>{pet_detail.color}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -82,9 +95,13 @@ export default function DetailPage (props) {
             <div className="col-12">
               <div className="card">
                 <div className="card-body">
-                  <button className="btn btn-outline-dark btn-block"><span className="fas fa-heart mr-3"></span>Favorite {pet_detail.name}</button>
+                  <button className="btn btn-purple btn-block">
+                    <span className="fas fa-heart mr-2"></span>Favorite {pet_detail.name}
+                  </button>
                   <br/>
-                  <button className="btn btn-outline-primary btn-block" onClick={() => handleAdoptButton(pet_detail._id)}>Adopt {pet_detail.name}</button>
+                  <button className="btn btn-outline-primary btn-block" onClick={() => handleAdoptButton(pet_detail._id)}>
+                    Adopt {pet_detail.name}
+                  </button>
                 </div>
               </div>
             </div>
@@ -93,14 +110,14 @@ export default function DetailPage (props) {
             <div className="col-12">
               <div className="card">
                 <div className="card-body">
-                  <h3 className="card-title mb-4">Contact {pet_detail.name}</h3>
+                  <h3 className="card-title">Contact {pet_detail.name}</h3>
                   <hr/>
-                  <div className="card-subtitle">
-                    <h5 className="fas fa-user"><span className="ml-3">{pet_detail.Owner.username}</span></h5>
+                  <div className="card-text">
+                    <h6 className="fas fa-user"><span className="ml-3">{pet_detail.Owner.username}</span></h6>
                     <br/>
-                    <h5 className="fas fa-map-marker-alt"><span className="ml-3">{pet_detail.Owner.address}</span></h5>
+                    <h6 className="fas fa-map-marker-alt"><span className="ml-3">{pet_detail.Owner.address}</span></h6>
                     <br/>
-                    <h5 className="fas fa-phone-alt"><span className="ml-3">{pet_detail.Owner.phone}</span></h5>
+                    <h6 className="fas fa-phone-alt"><span className="ml-3">{pet_detail.Owner.phone}</span></h6>
                   </div>
                 </div>
               </div>

@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Rubik', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -21,4 +21,14 @@ code {
   object-fit: contain;
   top: 0;
   left: 0;
+}
+
+.btn-purple {
+  color: #B90060;
+  border-color: #B90060;
+}
+
+.btn-purple:hover {
+  color: #fff;
+  background-color: #B90060;
 }
