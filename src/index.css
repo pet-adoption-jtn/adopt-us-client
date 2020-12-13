@@ -3,6 +3,18 @@ body {
   font-family: 'Rubik', sans-serif;
 }
 
+.image-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
 .content:hover {
   cursor: pointer;
 }
@@ -32,6 +44,6 @@ body {
   color: #ab0b6b;
 }
 
-.icon-heart {
-  border-radius: 30px;
+.icon-heart:hover {
+  cursor: pointer;
 }
