@@ -2,6 +2,8 @@
 /* font-family: 'Chicle', cursive; */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 /* font-family: 'Quicksand', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+/* font-family: 'Rubik', sans-serif; */
 
 
 /* ================ buton social media ================== */
@@ -39,7 +41,8 @@
 /* ============= buton social media =================== */
 
 .titleLogin {
-  font-family: 'Chicle', cursive;
+  /* font-family: 'Chicle', cursive; */
+  font-family: 'Rubik', sans-serif;
 }
 
 /* ===== Bg login ======== */
