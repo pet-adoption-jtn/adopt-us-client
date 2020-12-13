@@ -1,6 +1,11 @@
 body {
   margin: 0;
   font-family: 'Rubik', sans-serif;
+  background-color: #f0199a;
+}
+
+.navbar {
+  background-color: #f0199a;
 }
 
 .image-container {
@@ -17,6 +22,20 @@ body {
 
 .content:hover {
   cursor: pointer;
+  border-bottom-style: solid;
+  border-color: #fff;
+}
+
+.btn-danger {
+  background-color: #fff;
+  color: #ab0b6b;
+  border-color: #ab0b6b;
+}
+
+.btn-danger:hover {
+  background-color: #ab0b6b;
+  color: #fff;
+  border-color: #ab0b6b;
 }
 
 .side:hover {
@@ -24,8 +43,8 @@ body {
 }
 
 .content {
-  font-size: 18px;
-  color: #ce0d81;
+  font-size: 20px;
+  color: #fff;
   font-weight: 500;
 }
 
@@ -34,7 +53,7 @@ body {
 }
 
 .label-filter {
-  color: #3B4040;
+  color: #ECECEC;
   font-size: 16px;
   font-weight: 400;
 }
@@ -70,4 +89,8 @@ body {
   background-color: #fff;
   color: #ab0b6b;
   width: 100px;
+}
+
+.card:hover {
+  cursor: pointer;
 }

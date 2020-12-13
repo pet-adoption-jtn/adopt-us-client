@@ -3,7 +3,7 @@ import React from 'react';
 export default function Cards() {
   return(
     <>
-      <div className="col-4 mb-3">
+      <div className="col-4 mb-4">
         <div className="card text-center shadow" style={{width: '16rem'}}>
           <div className="image-container">
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/000_American_Pit_Bull_Terrier.jpg" width="500px" height="200px" className="card-img-top" alt="pics" />
