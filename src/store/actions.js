@@ -1,6 +1,30 @@
 import axios from '../config/axios'
 import { Toast } from '../config/swal'
 
+export function userSignUp(dataSignUp) {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios({
+        method: 'POST',
+        url: '/register',
+        data: dataSignUp
+      })
+      if (data) {
+        Toast.fire({
+          icon: 'success',
+          title: 'Sign up success full'
+        })
+      }
+    } catch (err) {
+      Toast.fire({
+        icon: 'error',
+        title: 'Opps, Error'
+      })
+      console.log(err)
+    }
+  }
+}
+
 export function fetchAllPets () {
   return async (dispatch) => {
     try {
@@ -22,6 +46,7 @@ export function fetchAllPets () {
     }
   }
 }
+
 
 export function getDetails(id) {
   return (dispatch) => {
