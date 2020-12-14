@@ -14,7 +14,7 @@ function LoginPage(props) {
       <div className="bgLogin row justify-content-center mt-5 border">
         <div className="borderHorver col-5 text-center">
           <div className="w3-card-4 p-3 bg-light" style={{ borderRadius: '10px' }}>
-            <h1 className="titleLogin">Sign In</h1>
+            <h1 className="titleLogin">Sign in</h1>
             <form>
               <input type="email" style={{ borderRadius: '50px' }} className="form-control my-3" placeholder="E-mail"></input>
               <input type="password" style={{ borderRadius: '50px' }} className="form-control my-3" placeholder="Password"></input>
