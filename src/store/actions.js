@@ -33,7 +33,7 @@ export function fetchAllPets () {
     })
       .then(({ data }) => {
         dispatch({
-          type: 'SET_LANDING_PAGE',
+          type: 'SET_PET_DATA',
           payload: data
         })
       })
@@ -52,7 +52,7 @@ export function getDetails(id) {
   return (dispatch) => {
     axios({
       method: 'GET',
-      url: `/pets/details/${id}`
+      url: `/pets/detail/${id}`
     })
       .then(({ data }) => {
         dispatch({
@@ -70,21 +70,50 @@ export function getDetails(id) {
   }
 }
 
+export function fetchFavorites () {
+  return (dispatch) => {
+    const access_token = localStorage.getItem('access_token')
+    axios({
+      method: 'GET',
+      url: '/favorites' ,
+      headers: {
+        access_token
+      }
+    })
+      .then(({ data }) => {
+        dispatch({
+          type: 'SET_FAVORITES',
+          payload: data
+        })
+      })
+      .catch(console.log)
+      .finally(() => {
+        dispatch({
+          type: 'SET_FAVORITE_LOADING',
+          payload: false
+        })
+      })
+  }
+}
+
 export function addToFavorite (pet_id) {
   return async (dispatch) => {
     try {
       const access_token = localStorage.getItem('access_token')
       const { data } = await axios({
         method: 'POST',
+        url: '/favorites',
         data: { pet_id },
         headers: { access_token }
       })
-      if (data) {
-        Toast.fire({
-          icon: 'success',
-          title: 'Added to favorites'
-        })
-      }
+      await dispatch({
+        type: 'ADD_FAVORITE',
+        payload: data
+      })
+      await Toast.fire({
+        icon: 'success',
+        title: 'added to favorites'
+      })
     } catch (error) {
       console.log(error); 
     }
@@ -124,28 +153,36 @@ export function addNewPet(newPet) {
       url: '/pets'
     })
       .then(({ data }) => {
-        fetchOwnerPet()
+        dispatch({
+          type: ''
+        })
       })
-      .catch(console.log)
+      .catch(err => console.log(err))
   }
 }
 
 export function deletePet(id) {
   return (dispatch) => {
-    const access_token = localStorage.getItem('access_token')
-    axios({
-      method: 'DELETE',
-      url: `/pets/${id}`,
-      headers: {
-        access_token
-      }
-    })
-      .then(({ data }) => {
-        fetchOwnerPet()
-        return data
+      const access_token = localStorage.getItem('access_token')
+      axios({
+        method: 'DELETE',
+        url: `/pets/${id}`,
+        headers: {
+          access_token
+        }
       })
-      .catch(console.log)
+        .then(({ data }) => {
+          dispatch({
+            type: 'DELETE_PET',
+            payload: id
+          })
+        })
+        .catch(console.log)
+    }
   }
+
+export function requestAdoption (payload) {
+
 }
 
 export function adoptPet({ pet, status }) {
@@ -174,4 +211,24 @@ export function signIn(payload) {
     url: '/login',
     data: payload
   })
+}
+
+export function removeFavorites (id) {
+  const access_token = localStorage.getItem('access_token')
+  return (dispatch) => {
+    axios({
+      method: 'DELETE',
+      url: `/favorites/${id}`,
+      headers: {
+        access_token
+      }
+    })
+      .then(({ data }) => {
+        dispatch({
+          type: 'REMOVE_FAVORITES',
+          payload: id
+        })
+      })
+      .catch(console.log)
+  }
 }
