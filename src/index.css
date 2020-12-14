@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 body {
   margin: 0;
   font-family: 'Rubik', sans-serif;
   background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .navbar {
@@ -95,4 +99,25 @@ body {
 
 .card:hover {
   cursor: pointer;
+}
+
+.carousel .carousel-item {
+  height: 300px;
+}
+
+.carousel-item img {
+  position: absolute;
+  object-fit: contain;
+  top: 0;
+  left: 0;
+}
+
+.btn-purple {
+  color: #B90060;
+  border-color: #B90060;
+}
+
+.btn-purple:hover {
+  color: #fff;
+  background-color: #B90060;
 }
