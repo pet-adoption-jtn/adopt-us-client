@@ -1,8 +1,21 @@
-import React from 'react';
-import FilterDropdowns from '../components/FilterDropdowns';
-import Cards from '../components/Cards';
+import React, { useEffect } from 'react';
+import { FilterDropdowns, Cards, Loading } from '../components';
+import { fetchAllPets } from '../store/actions'
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function Landing() {
+  const dispatch = useDispatch()
+  const { petList, loading }  = useSelector(state => state)
+
+  
+  useEffect(() => {
+    dispatch(fetchAllPets())
+  }, [dispatch])
+  
+  if (loading) {
+    return <Loading />
+  }
+
   return(
     <>
       <div className="container">
@@ -20,7 +33,7 @@ export default function Landing() {
               <img src="https://catrescue.id/wp-content/uploads/2020/01/cat-rescue-03.jpg" width="350" height="350" className="rounded shadow" alt="" style={{borderColor: '#f0199a'}} />
               <button className="mt-3 mb-4 btn btn-1 btn-lg">ABOUT CAT</button>
             </div>
-              <Cards />
+              <Cards petList={petList} />
             </div>
           </div>
         </div>

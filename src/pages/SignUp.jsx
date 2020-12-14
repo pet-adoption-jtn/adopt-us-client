@@ -37,9 +37,10 @@ function RegisterPage(props) {
 
   return (
     <div className="container">
-      <div className="bgLogin row justify-content-center mt-5 border">
-        <div className="padingRegis col-5 text-center">
-          <div className="w3-card-4 p-3 bg-light" style={{ borderRadius: '10px' }}>
+      <div className="row justify-content-center ">
+        <div className="padingRegis col-6 text-center">
+          <div className="w3-card-4 p-3 bg-light posisiImgFav" style={{ borderRadius: '10px' }}>
+            <img data-bs-dismiss="modal" className="closedPage" src={'https://www.flaticon.com/svg/static/icons/svg/1828/1828774.svg'} alt={'closed'}></img>
             <h1 className="titleLogin">Sign up</h1>
             <form onSubmit={(e) => handleSubmitSignUp(e)}>
               <input onChange={(e) => handleCangeValue(e)} name="email" value={ dataSignUp.email } type="email" className="BorRegis form-control my-3" placeholder="E-mail"></input>

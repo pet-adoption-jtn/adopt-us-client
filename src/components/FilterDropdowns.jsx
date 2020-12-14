@@ -7,13 +7,13 @@ export default function FilterDropdowns() {
         <div className="group-filter mb-3">
           <label className="label-filter">TYPE</label>
           <div className="mt-1">
-            <div class="btn-group">
-              <button class="btn btn-light border btn-sm dropdown-toggle shadow" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{width: '200px'}}>
+            <div className="btn-group">
+              <button className="btn btn-light border btn-sm dropdown-toggle shadow" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{width: '200px'}}>
                 Any
               </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Dog</a></li>
-                <li><a class="dropdown-item" href="#">Cat</a></li>
+              <ul className="dropdown-menu">
+                <li><p className="dropdown-item" >Dog</p></li>
+                <li><p className="dropdown-item" >Cat</p></li>
               </ul>
             </div>
           </div>
@@ -21,16 +21,16 @@ export default function FilterDropdowns() {
         <div className="group-filter mb-3">
           <label className="label-filter">BREED</label>
           <div className="mt-1">
-            <div class="btn-group">
-              <button class="btn btn-light border shadow btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{width: '200px'}}>
+            <div className="btn-group">
+              <button className="btn btn-light border shadow btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{width: '200px'}}>
                 Any
               </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">American Bully</a></li>
-                <li><a class="dropdown-item" href="#">American Eskimo</a></li>
-                <li><a class="dropdown-item" href="#">Afghan Hound</a></li>
-                <li><a class="dropdown-item" href="#">Alaskan Malamute</a></li>
-                <li><a class="dropdown-item" href="#">Siberian Husky</a></li>
+              <ul className="dropdown-menu">
+                <li><p className="dropdown-item">American Bully</p></li>
+                <li><p className="dropdown-item">American Eskimo</p></li>
+                <li><p className="dropdown-item">Afghan Hound</p></li>
+                <li><p className="dropdown-item">Alaskan Malamute</p></li>
+                <li><p className="dropdown-item">Siberian Husky</p></li>
               </ul>
             </div>
           </div>
@@ -38,16 +38,16 @@ export default function FilterDropdowns() {
         <div className="group-filter mb-3">
           <label className="label-filter">COLOR</label>
           <div className="mt-1">
-            <div class="btn-group">
-              <button class="btn btn-light border shadow btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{width: '200px'}}>
+            <div className="btn-group">
+              <button className="btn btn-light border shadow btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{width: '200px'}}>
                 Any
               </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Black</a></li>
-                <li><a class="dropdown-item" href="#">White</a></li>
-                <li><a class="dropdown-item" href="#">Brown</a></li>
-                <li><a class="dropdown-item" href="#">Gold</a></li>
-                <li><a class="dropdown-item" href="#">Grey</a></li>
+              <ul className="dropdown-menu">
+                <li><p className="dropdown-item">Black</p></li>
+                <li><p className="dropdown-item">White</p></li>
+                <li><p className="dropdown-item">Brown</p></li>
+                <li><p className="dropdown-item">Gold</p></li>
+                <li><p className="dropdown-item">Grey</p></li>
               </ul>
             </div>
           </div>
@@ -55,13 +55,13 @@ export default function FilterDropdowns() {
         <div className="group-filter mb-3">
           <label className="label-filter">GENDER</label>
           <div className="mt-1">
-            <div class="btn-group">
-              <button class="btn btn-light border shadow btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{width: '200px'}}>
+            <div className="btn-group">
+              <button className="btn btn-light border shadow btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{width: '200px'}}>
                 Any
               </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Male</a></li>
-                <li><a class="dropdown-item" href="#">Female</a></li>
+              <ul className="dropdown-menu">
+                <li><p className="dropdown-item">Male</p></li>
+                <li><p className="dropdown-item">Female</p></li>
               </ul>
             </div>
           </div>
@@ -69,15 +69,15 @@ export default function FilterDropdowns() {
         <div className="group-filter mb-3">
           <label className="label-filter">SIZE</label>
           <div className="mt-1">
-            <div class="btn-group">
-              <button class="btn btn-light border shadow btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{width: '200px'}}>
+            <div className="btn-group">
+              <button className="btn btn-light border shadow btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{width: '200px'}}>
                 Any
               </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Baby</a></li>
-                <li><a class="dropdown-item" href="#">Young</a></li>
-                <li><a class="dropdown-item" href="#">Adult</a></li>
-                <li><a class="dropdown-item" href="#">Senior</a></li>
+              <ul className="dropdown-menu">
+                <li><p className="dropdown-item">Baby</p></li>
+                <li><p className="dropdown-item">Young</p></li>
+                <li><p className="dropdown-item">Adult</p></li>
+                <li><p className="dropdown-item">Senior</p></li>
               </ul>
             </div>
           </div>

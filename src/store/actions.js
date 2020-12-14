@@ -25,6 +25,29 @@ export function userSignUp(dataSignUp) {
   }
 }
 
+export function fetchAllPets () {
+  return (dispatch) => {
+    axios({
+      url: '/pets',
+      method: 'GET'
+    })
+      .then(({ data }) => {
+        dispatch({
+          type: 'SET_LANDING_PAGE',
+          payload: data
+        })
+      })
+      .catch(console.log)
+      .finally(() => {
+        dispatch({
+          type: 'SET_LOADING_DATA',
+          payload: false
+        })
+      })
+  }
+}
+
+
 export function getDetails(id) {
   return (dispatch) => {
     axios({
@@ -143,4 +166,12 @@ export function adoptPet({ pet, status }) {
       })
       .catch(console.log)
   }
+}
+
+export function signIn(payload) {
+  return axios({
+    method: 'POST',
+    url: '/login',
+    data: payload
+  })
 }
