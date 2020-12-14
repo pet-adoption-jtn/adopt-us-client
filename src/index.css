@@ -29,7 +29,6 @@ body {
 .content:hover {
   cursor: pointer;
   border-bottom-style: solid;
-  border-color: #fff;
 }
 
 .btn-1 {
@@ -116,4 +115,10 @@ body {
 .btn-purple:hover {
   color: #fff;
   background-color: #B90060;
+}
+
+.dropdown-item:hover {
+  cursor: pointer;
+  background-color: #B90060;
+  color: #fff;
 }
