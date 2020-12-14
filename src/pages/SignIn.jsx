@@ -61,6 +61,7 @@ function LoginPage(props) {
                 placeholder="Password"
                 value={formInput.password}
                 onChange={(e) => handleInputChange(e)}
+                required
               ></input>
               <div className="mb-4" style={{ paddingRight: '50px', paddingLeft: '50px' }}>
                 <button type="submit" style={{ borderRadius: '50px' }} className="btn btn-outline-dark form-control">Sign in</button>
