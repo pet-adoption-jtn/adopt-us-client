@@ -11,6 +11,7 @@ export default function AddPetPage(props) {
     type: 'dog',
     breed: '',
     age: 'baby',
+    gender: 'male',
     color: '',
     pictures: ''
   })
@@ -78,6 +79,20 @@ export default function AddPetPage(props) {
           />
         </div>
         <div className="form-group">
+          <label htmlFor="gender">Gender</label>
+          <select 
+            name="gender" 
+            id="gender"
+            required
+            value={form_input.gender}
+            onChange={(e) => handleChange(e)}
+            className="form-control"
+          >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div className="form-group">
           <label htmlFor="age">Age</label>
           <select 
             name="age" 
@@ -113,11 +128,12 @@ export default function AddPetPage(props) {
             id="pictures" 
             multiple 
             className="form-control"
+            placeholder="if more than 1 pictures use a coma (ex: pic1, pic2)"
             value={form_input.pictures}
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <button className="btn btn-primary"><span className="fas fa-paw"></span> Add</button>
+        <button className="btn btn-primary mb-5"><span className="fas fa-paw"></span> Add</button>
       </form>
     </div>
     </>

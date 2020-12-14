@@ -1,10 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom'
 import SignInPage from '../pages/SignIn'
 import SignUpPage from '../pages/SignUp'
 
-
 export default function Navbar() {
+  const history = useHistory()
+  const { access_token } = useSelector(state => state)
+  const dispatch = useDispatch()
+
+  const goToMyPets = () => {
+    history.push('/myPets')
+  }
+
+  const signOut = () => {
+    dispatch({
+      type: 'SET_ACCESS_TOKEN',
+      payload: null
+    })
+    localStorage.clear()
+    history.push('/')
+  }
+
   return (
     <>
       <div className="modal fade" id="Sing-in-Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -23,24 +41,47 @@ export default function Navbar() {
         </div>
       </div>
 
-      <nav className="navbar navbar-expand-lg" style={{paddingLeft: '100px', paddingRight: '100px'}}>
+      <nav className="navbar navbar-expand-lg boxFooter mb-5" style={{paddingLeft: '100px', paddingRight: '100px'}}>
         <div className="container-fluid">
-          <p className="navbar-brand">
+          <p className="navbar-brand m-0">
             <Link to='/'>
-              <img src="./adoptUs.png" alt="logo" width="80" height="80" />
+              <img src="./adoptUs.png" alt="logo" width="60" height="60" />
             </Link>
           </p>
-          <div className="">
-            <ul className="navbar-nav mb-2-lg-0">
-              <li className="nav-item">
-                  <p className="content nav-link" style={{fontSize: '20px'}}><i className="fa fa-heart-o"></i></p>
+          <div>
+            <ul className="navbar-nav">
+              <li className="nav-item justify-content-between">
+                  <Link style={{ textDecoration: 'none' }} to="/favorites" className="content nav-link"><i className="fa fa-heart-o p-0"></i></Link>
               </li>
-              <li className="nav-item pt-1" style={{marginLeft: '20px', marginRight: '15px'}}>
-                <Link data-bs-toggle="modal" data-bs-target="#Sing-in-Modal" className="content nav-link">Sign In</Link>
-              </li>
-              <li className="nav-item pt-1">
-                <Link data-bs-toggle="modal" data-bs-target="#Sing-up-Modal" className="content nav-link">Sign Up</Link>
-              </li>
+              {
+                access_token
+                ? 
+                <li className="nav-item dropdown">
+                  <a className="content nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Account
+                  </a>
+                  <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a onClick={() => goToMyPets()} className="dropdown-item">MyPets</a></li>
+                    <li><a onClick={() => signOut()} className="dropdown-item">Sign Out</a></li>
+                  </ul>
+                </li>
+                : 
+                <li className="nav-item">
+                  <Link style={{ textDecoration: 'none' }} to="/signin">
+                    <p className="content nav-link m-0" style={{textDecoration: 'none'}}>Sign In</p>
+                  </Link>
+                </li>
+              }
+              {
+                access_token
+                ? ''
+                :
+                <li className="nav-item">
+                  <Link style={{ textDecoration: 'none' }} to="/signup">
+                    <p className="content nav-link m-0" style={{textDecoration: 'none'}}>Sign Up</p>
+                  </Link>
+                </li>
+              }
             </ul>
           </div>
         </div>

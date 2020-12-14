@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-// import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Toast } from '../config/swal'
 import { signIn } from '../store/actions'
+import { useDispatch } from 'react-redux'
 import '../style/css/login-page.css'
 
 function LoginPage(props) {
@@ -11,6 +11,7 @@ function LoginPage(props) {
     password: ''
   })
   const history = useHistory()
+  const dispatch = useDispatch()
 
   function handleInputChange(e) {
     let key = e.target.name
@@ -22,11 +23,26 @@ function LoginPage(props) {
     })
   }
 
-  function handleSgnIn(e) {
-    e.preventDefault()
+  const handleSgnIn = (event) => {
+    event.preventDefault()
+    let response;
     signIn(formInput)
       .then(({ data }) => {
+        response = data
         localStorage.setItem('access_token', data.access_token)
+        return dispatch({
+          type: 'SET_ACCESS_TOKEN',
+          payload: data.access_token
+        })
+      })
+      .then(() => {
+
+        return dispatch({
+          type: 'SET_ACCOUNT',
+          payload: response.account
+        })
+      })
+      .then(() => {
         Toast.fire({
           icon: 'success',
           title: 'Welcome!'
@@ -38,20 +54,19 @@ function LoginPage(props) {
 
   return (
     <div className="container">
-      <div className="row justify-content-center">
-        <div className="col-5 borderHorver text-center">
-          <div className="w3-card-4 p-3 bg-light posisiImgFav" style={{ borderRadius: '10px' }}>
-            <img data-bs-dismiss="modal" className="closedPage" src={'https://www.flaticon.com/svg/static/icons/svg/1828/1828774.svg'} alt={'closed'}></img>
+      <div className="bgLogin row justify-content-center border" style={{marginBottom: '25px'}}>
+        <div className="borderHorver col-5 text-center">
+          <div className="w3-card-4 p-3 bg-light" style={{ borderRadius: '10px' }}>
             <h1 className="titleLogin">Sign In</h1>
-            <form onSubmit={e => handleSgnIn(e)}>
-              <input
+            <form onSubmit={handleSgnIn}>
+              <input 
                 type="email" 
                 name="email"
                 style={{ borderRadius: '50px' }} 
                 className="form-control my-3" 
                 placeholder="E-mail"
                 value={formInput.email}
-                onChange={(e) => handleInputChange(e)}
+                onChange={handleInputChange}
                 required
               ></input>
               <input 
@@ -61,7 +76,7 @@ function LoginPage(props) {
                 className="form-control my-3" 
                 placeholder="Password"
                 value={formInput.password}
-                onChange={(e) => handleInputChange(e)}
+                onChange={handleInputChange}
                 required
               ></input>
               <div className="mb-4" style={{ paddingRight: '50px', paddingLeft: '50px' }}>

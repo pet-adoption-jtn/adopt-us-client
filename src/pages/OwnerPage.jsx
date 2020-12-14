@@ -2,9 +2,11 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchOwnerPet, deletePet, adoptPet } from '../store/actions'
 import { Swal, Toast } from '../config/swal'
+import { useHistory } from 'react-router-dom'
 
 export default function OwnerPage (props) {
   const dispatch = useDispatch()
+  const history = useHistory()
   const my_pets = useSelector(state => state.owners_pets)
 
   useEffect(() => {
@@ -20,10 +22,10 @@ export default function OwnerPage (props) {
       confirmButtonText: 'Delete'
     })     
     if (res.isConfirmed) {
-      const response = await dispatch(deletePet(pet_id))
+      await dispatch(deletePet(pet_id))
       Toast.fire({
         icon: 'success',
-        title: response.message
+        title: 'deleted'
       })
     }
   }
@@ -36,7 +38,7 @@ export default function OwnerPage (props) {
     <>
     <div className="container mt-3">
       <h2 className="text-center mb-3">Your Pets</h2>
-      <button className="btn btn-success mb-3"><span className="fas fa-paw"></span>  Add a new Pet</button>
+      <button className="btn btn-success mb-3" onClick={() => history.push('/addPet')}><span className="fas fa-paw"></span>  Add a new Pet</button>
       <table className="table">
         <thead>
           <tr>
@@ -51,7 +53,7 @@ export default function OwnerPage (props) {
         <tbody>
           {
             my_pets.map(pet => (
-              <tr>
+              <tr key={pet._id}>
                 <td>{pet.name}</td>
                 <td>{pet.type}</td>
                 <td>{pet.breed}</td>

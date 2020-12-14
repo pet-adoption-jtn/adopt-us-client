@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
-import { getDetails, addToFavorite } from '../store/actions'
+import { getDetails, requestAdoption } from '../store/actions'
 import { Loading } from "../components";
 import { Swal } from '../config/swal';
 
@@ -14,18 +14,18 @@ export default function DetailPage (props) {
 
   useEffect(() => {
     dispatch(getDetails(id))
-  }, [id, dispatch])
+  }, [])
   
 
-  function handleAdoptButton (pet_id) {
-    const access_token = localStorage.getItem('access-token')
+  function handleAdoptButton () {
+    const access_token = localStorage.getItem('access_token')
     if (access_token) {
-      dispatch(addToFavorite(pet_id))
+      history.push('/formadoption', { pet_detail })
     } else {
-      history.push('/login')
+      history.push('/signin')
       Swal.fire({
         icon: 'warning',
-        title: 'Please Login First'
+        title: 'Please Sign In First'
       })
     }
   }
@@ -35,7 +35,7 @@ export default function DetailPage (props) {
   return (
     <>
     <div className="container my-2">
-      <div id="MyCarousel" className="carousel slide" data-ride="carousel">
+      <div id="MyCarousel" className="carousel slide w3-card-4" data-ride="carousel">
         <div className="carousel-inner">
           {
             pet_detail.pictures.map((pic, i) => (
@@ -45,17 +45,17 @@ export default function DetailPage (props) {
             ))
           }
           <a href="#MyCarousel" className="carousel-control-prev" role="button" data-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="carousel-control-prev-icon bg-dark p-5" style={{ borderRadius: '50px' }}  aria-hidden="true"></span>
             <span className="sr-only">Previous</span>
           </a>
           <a href="#MyCarousel" className="carousel-control-next" role="button" data-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="carousel-control-next-icon bg-dark p-5" style={{ borderRadius: '50px' }} aria-hidden="true"></span>
             <span className="sr-only">Next</span>
           </a>
         </div>
       </div>
       <br/>
-      <div className="row">
+      <div className="row mb-5">
         <div className="col-8">
           <div className="card">
             <div className="card-body">
@@ -99,7 +99,7 @@ export default function DetailPage (props) {
                     <span className="fas fa-heart mr-2"></span>Favorite {pet_detail.name}
                   </button>
                   <br/>
-                  <button className="btn btn-outline-primary btn-block" onClick={() => handleAdoptButton(pet_detail._id)}>
+                  <button className="btn btn-outline-primary btn-block" onClick={() => handleAdoptButton()}>
                     Adopt {pet_detail.name}
                   </button>
                 </div>
