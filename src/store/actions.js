@@ -1,6 +1,28 @@
 import axios from '../config/axios'
 import { Toast } from '../config/swal'
 
+export function fetchAllPets () {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios({
+        url: '/pets',
+        method: 'GET'
+      })
+      await dispatch({
+        type: 'SET_LANDING_PAGE',
+        payload: data
+      })
+
+      await dispatch({
+        type: 'SET_LOADING_DATA',
+        payload: false
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
 export function getDetails(id) {
   return (dispatch) => {
     axios({

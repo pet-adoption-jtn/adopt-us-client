@@ -74,13 +74,9 @@ body {
   cursor: pointer;
 }
 
-.icon-heart {
+.icon-hearted {
   background-color: #fff;
-  width: 31px;
-  height: 31px;
   border-radius: 50%;
-  padding-top: 4px;
-  padding-right: 1px;
 }
 
 .btn1 {
