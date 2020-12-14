@@ -14,10 +14,10 @@ export default function Navbar() {
                   <p className="content nav-link" style={{fontSize: '26px'}}><i className="fa fa-heart-o"></i></p>
               </li>
               <li className="nav-item pt-1" style={{marginLeft: '20px', marginRight: '15px'}}>
-                <p className="content nav-link">Log In</p>
+                <p className="content nav-link">Sign In</p>
               </li>
               <li className="nav-item pt-1">
-                <p className="content nav-link">Register</p>
+                <p className="content nav-link">Sign Up</p>
               </li>
             </ul>
           </div>

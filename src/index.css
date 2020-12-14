@@ -6,13 +6,14 @@ body {
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  padding: 0;
 }
 
 .navbar {
   background-color: #fff;
 }
 
-/* f0199a */
 
 .image-container {
   position: relative;
