@@ -1,12 +1,14 @@
 body {
   margin: 0;
   font-family: 'Rubik', sans-serif;
-  background-color: #f0199a;
+  background-color: #fff;
 }
 
 .navbar {
-  background-color: #f0199a;
+  background-color: #fff;
 }
+
+/* f0199a */
 
 .image-container {
   position: relative;
@@ -26,13 +28,13 @@ body {
   border-color: #fff;
 }
 
-.btn-danger {
+.btn-1 {
   background-color: #fff;
   color: #ab0b6b;
   border-color: #ab0b6b;
 }
 
-.btn-danger:hover {
+.btn-1:hover {
   background-color: #ab0b6b;
   color: #fff;
   border-color: #ab0b6b;
@@ -44,7 +46,7 @@ body {
 
 .content {
   font-size: 20px;
-  color: #fff;
+  color: #f0199a;
   font-weight: 500;
 }
 
@@ -53,7 +55,7 @@ body {
 }
 
 .label-filter {
-  color: #ECECEC;
+  color: #000;
   font-size: 16px;
   font-weight: 400;
 }

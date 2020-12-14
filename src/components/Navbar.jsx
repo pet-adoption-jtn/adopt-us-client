@@ -6,7 +6,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg" style={{paddingLeft: '100px', paddingRight: '100px'}}>
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            <img src="./Adopt.Us.png" alt="logo" width="80" height="80" />
+            <img src="./adoptUs.png" alt="logo" width="80" height="80" />
           </a>
           <div className="">
             <ul className="navbar-nav mb-2-lg-0">
