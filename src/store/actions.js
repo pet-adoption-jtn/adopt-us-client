@@ -26,24 +26,24 @@ export function userSignUp(dataSignUp) {
 }
 
 export function fetchAllPets () {
-  return async (dispatch) => {
-    try {
-      const { data } = await axios({
-        url: '/pets',
-        method: 'GET'
+  return (dispatch) => {
+    axios({
+      url: '/pets',
+      method: 'GET'
+    })
+      .then(({ data }) => {
+        dispatch({
+          type: 'SET_LANDING_PAGE',
+          payload: data
+        })
       })
-      await dispatch({
-        type: 'SET_LANDING_PAGE',
-        payload: data
+      .catch(console.log)
+      .finally(() => {
+        dispatch({
+          type: 'SET_LOADING_DATA',
+          payload: false
+        })
       })
-
-      await dispatch({
-        type: 'SET_LOADING_DATA',
-        payload: false
-      })
-    } catch (error) {
-      console.log(error)
-    }
   }
 }
 
@@ -166,4 +166,12 @@ export function adoptPet({ pet, status }) {
       })
       .catch(console.log)
   }
+}
+
+export function signIn(payload) {
+  return axios({
+    method: 'POST',
+    url: '/login',
+    data: payload
+  })
 }
