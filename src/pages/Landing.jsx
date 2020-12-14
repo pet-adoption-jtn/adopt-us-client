@@ -7,7 +7,6 @@ export default function Landing() {
   const dispatch = useDispatch()
   const { petList, loading }  = useSelector(state => state)
 
-  
   useEffect(() => {
     dispatch(fetchAllPets())
   }, [dispatch])

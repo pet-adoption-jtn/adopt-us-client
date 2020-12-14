@@ -14,7 +14,7 @@ export default function Navbar() {
           <div className="">
             <ul className="navbar-nav mb-2-lg-0">
               <li className="nav-item">
-                  <p className="content nav-link" style={{fontSize: '20px'}}><i className="fa fa-heart-o"></i></p>
+                  <Link to="/favorites" className="content nav-link" style={{fontSize: '20px'}}><i className="fa fa-heart-o"></i></Link>
               </li>
               <li className="nav-item pt-1" style={{marginLeft: '20px', marginRight: '15px'}}>
                 <Link to="/signin" className="content nav-link">Sign In</Link>

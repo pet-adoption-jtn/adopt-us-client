@@ -19,7 +19,7 @@ function RegisterPage(props) {
     history.push(page)
   }
 
-  function handleCangeValue(e) {
+  function handleChangeValue(e) {
     let key = e.target.name
     let value = e.target.value
 
@@ -42,11 +42,50 @@ function RegisterPage(props) {
           <div className="w3-card-4 p-3 bg-light" style={{ borderRadius: '10px' }}>
             <h1 className="titleLogin">Sign up</h1>
             <form onSubmit={(e) => handleSubmitSignUp(e)}>
-              <input onChange={(e) => handleCangeValue(e)} name="email" value={ dataSignUp.email } type="email" className="BorRegis form-control my-3" placeholder="E-mail"></input>
-              <input onChange={(e) => handleCangeValue(e)} name="password" value={ dataSignUp.password } type="password" className="BorRegis form-control my-3" placeholder="Password"></input>
-              <input onChange={(e) => handleCangeValue(e)} name="username" value={ dataSignUp.username } type="text" className="BorRegis form-control my-3" placeholder="User Name"></input>
-              <input onChange={(e) => handleCangeValue(e)} name="address" value={ dataSignUp.address } type="text" className="BorRegis form-control my-3" placeholder="Address"></input>
-              <input onChange={(e) => handleCangeValue(e)} name="phone" value={ dataSignUp.phone } type="text" className="BorRegis form-control my-3" placeholder="No Handphone"></input>
+              <input 
+                onChange={(e) => handleChangeValue(e)} 
+                name="username" 
+                value={ dataSignUp.username } 
+                type="text" 
+                className="BorRegis form-control my-3" 
+                placeholder="username"
+                required
+              ></input>
+              <input 
+                onChange={(e) => handleChangeValue(e)} 
+                name="email" 
+                value={ dataSignUp.email } 
+                type="email" 
+                className="BorRegis form-control my-3" 
+                placeholder="E-mail"
+                required
+              ></input>
+              <input 
+                onChange={(e) => handleChangeValue(e)} 
+                name="password" 
+                value={ dataSignUp.password } 
+                type="password" 
+                className="BorRegis form-control my-3" 
+                placeholder="Password"
+                required
+              ></input>
+              <input 
+                onChange={(e) => handleChangeValue(e)} 
+                name="address" value={ dataSignUp.address } 
+                type="text" 
+                className="BorRegis form-control my-3" 
+                placeholder="Address"
+                required
+              ></input>
+              <input 
+                onChange={(e) => handleChangeValue(e)} 
+                name="phone" 
+                value={ dataSignUp.phone } 
+                type="text" 
+                className="BorRegis form-control my-3" 
+                placeholder="No Handphone"
+                required
+              ></input>
               <div className="mb-4" style={{ paddingRight: '50px', paddingLeft: '50px' }}>
                 <button type="submit" className="BorRegis btn btn-outline-dark form-control">Sign up</button>
               </div>
