@@ -30,8 +30,8 @@ function RegisterPage(props) {
               <div>
                 <p>Or Sign in with</p>
               </div>
-              <a className="fa fa-google mx-3"></a>
-              <a className="fa fa-facebook mx-3"></a>
+              <p className="fa fa-google mx-3"></p>
+              <p className="fa fa-facebook mx-3"></p>
               <div>
                 <p className="mt-2">Already have an account ? <strong><a onClick={() => handleChangePage('/signin')} style={{ textDecoration: 'none', color: 'blue' }}>Sign in</a></strong></p>
               </div>

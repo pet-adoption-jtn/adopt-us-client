@@ -11,7 +11,8 @@ import {
   SignUpPage 
 } from './pages'
 import { 
-  NavBar 
+  NavBar,
+  Footer
 } from './components';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/signup" component={ SignUpPage } />
         <Route path="/signin" component={ SignInPage } />
       </Switch> 
+      <Footer/>
     </>
   );
 }

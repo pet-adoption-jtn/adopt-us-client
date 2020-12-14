@@ -1,6 +1,53 @@
 import axios from '../config/axios'
 import { Toast } from '../config/swal'
 
+export function userSignUp(dataSignUp) {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios({
+        method: 'POST',
+        url: '/register',
+        data: dataSignUp
+      })
+      if (data) {
+        Toast.fire({
+          icon: 'success',
+          title: 'Sign up success full'
+        })
+      }
+    } catch (err) {
+      Toast.fire({
+        icon: 'error',
+        title: err.message || 'Oops, Error'
+      })
+      console.log(err)
+    }
+  }
+}
+
+export function fetchAllPets () {
+  return (dispatch) => {
+    axios({
+      url: '/pets',
+      method: 'GET'
+    })
+      .then(({ data }) => {
+        dispatch({
+          type: 'SET_LANDING_PAGE',
+          payload: data
+        })
+      })
+      .catch(console.log)
+      .finally(() => {
+        dispatch({
+          type: 'SET_LOADING_DATA',
+          payload: false
+        })
+      })
+  }
+}
+
+
 export function getDetails(id) {
   return (dispatch) => {
     axios({
