@@ -7,7 +7,9 @@ const initialState = {
   load_detail: true,
   favorites: [],
   owners_pets: [],
-  loading: true
+  loading: true,
+  access_token: '',
+  account: {}
 }
 
 function reducer(state = initialState, action) {
@@ -25,6 +27,10 @@ function reducer(state = initialState, action) {
       return { ...state, favorites: payload }
     case "SET_OWNER_PET": 
       return { ...state, owners_pets: payload }
+    case "SET_ACCESS_TOKEN":
+      return { ...state, access_token: payload }
+    case "SET_ACCOUNT":
+      return { ...state, account: payload }
     default:
       return state
   }
