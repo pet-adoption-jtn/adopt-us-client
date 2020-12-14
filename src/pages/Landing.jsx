@@ -1,6 +1,5 @@
 import React from 'react';
-import FilterDropdowns from '../components/FilterDropdowns';
-import Cards from '../components/Cards';
+import { FilterDropdowns, Cards } from '../components'
 
 export default function Landing() {
   return(

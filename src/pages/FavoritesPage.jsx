@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import '../style/css/favorites-page.css'
-import FooterComponent from '../components/footer'
+import { Footer } from '../components'
 
 function FavoritesPage(props) {
   const history = useHistory()
@@ -80,7 +80,7 @@ function FavoritesPage(props) {
           </div>
         </div>
       </div>
-      <FooterComponent/>
+      <Footer/>
     </div>
   )
 }

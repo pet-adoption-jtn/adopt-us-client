@@ -12,8 +12,8 @@ export default function FilterDropdowns() {
                 Any
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Dog</a></li>
-                <li><a class="dropdown-item" href="#">Cat</a></li>
+                <li><a class="dropdown-item">Dog</a></li>
+                <li><a class="dropdown-item">Cat</a></li>
               </ul>
             </div>
           </div>
@@ -26,11 +26,11 @@ export default function FilterDropdowns() {
                 Any
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">American Bully</a></li>
-                <li><a class="dropdown-item" href="#">American Eskimo</a></li>
-                <li><a class="dropdown-item" href="#">Afghan Hound</a></li>
-                <li><a class="dropdown-item" href="#">Alaskan Malamute</a></li>
-                <li><a class="dropdown-item" href="#">Siberian Husky</a></li>
+                <li><a class="dropdown-item">American Bully</a></li>
+                <li><a class="dropdown-item">American Eskimo</a></li>
+                <li><a class="dropdown-item">Afghan Hound</a></li>
+                <li><a class="dropdown-item">Alaskan Malamute</a></li>
+                <li><a class="dropdown-item">Siberian Husky</a></li>
               </ul>
             </div>
           </div>
@@ -43,11 +43,11 @@ export default function FilterDropdowns() {
                 Any
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Black</a></li>
-                <li><a class="dropdown-item" href="#">White</a></li>
-                <li><a class="dropdown-item" href="#">Brown</a></li>
-                <li><a class="dropdown-item" href="#">Gold</a></li>
-                <li><a class="dropdown-item" href="#">Grey</a></li>
+                <li><a class="dropdown-item">Black</a></li>
+                <li><a class="dropdown-item">White</a></li>
+                <li><a class="dropdown-item">Brown</a></li>
+                <li><a class="dropdown-item">Gold</a></li>
+                <li><a class="dropdown-item">Grey</a></li>
               </ul>
             </div>
           </div>
@@ -60,8 +60,8 @@ export default function FilterDropdowns() {
                 Any
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Male</a></li>
-                <li><a class="dropdown-item" href="#">Female</a></li>
+                <li><a class="dropdown-item">Male</a></li>
+                <li><a class="dropdown-item">Female</a></li>
               </ul>
             </div>
           </div>
@@ -74,10 +74,10 @@ export default function FilterDropdowns() {
                 Any
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Baby</a></li>
-                <li><a class="dropdown-item" href="#">Young</a></li>
-                <li><a class="dropdown-item" href="#">Adult</a></li>
-                <li><a class="dropdown-item" href="#">Senior</a></li>
+                <li><a class="dropdown-item">Baby</a></li>
+                <li><a class="dropdown-item">Young</a></li>
+                <li><a class="dropdown-item">Adult</a></li>
+                <li><a class="dropdown-item">Senior</a></li>
               </ul>
             </div>
           </div>

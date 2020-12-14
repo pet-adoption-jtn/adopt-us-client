@@ -120,3 +120,11 @@ export function adoptPet({ pet, status }) {
       .catch(console.log)
   }
 }
+
+export function signIn(payload) {
+  return axios({
+    method: 'POST',
+    url: '/login',
+    data: payload
+  })
+}
