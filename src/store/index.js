@@ -6,12 +6,17 @@ const initialState = {
   pet_detail: {},
   load_detail: true,
   favorites: [],
-  owners_pets: []
+  owners_pets: [],
+  loading: true
 }
 
 function reducer(state = initialState, action) {
   const { type, payload } = action
   switch (type) {
+    case "SET_LANDING_PAGE":
+      return { ...state, petList: payload }
+    case "SET_LOADING_DATA":
+      return { ...state, loading: payload }
     case "SET_DETAILS":
       return { ...state, pet_detail: payload }
     case "SET_DETAIL_LOADING":
