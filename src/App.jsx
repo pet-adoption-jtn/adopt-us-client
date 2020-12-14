@@ -7,11 +7,12 @@ import LoginPage from './pages/login-page'
 import RegisterPage from './pages/register-page'
 import FavoritesPage from './pages/favorites-page'
 import FormAdoptionPage from './pages/form_adoption-page'
+import Footer from './components/footer'
 
 function App() {
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <Switch>
         <Route exact path="/" component={ Landing }/>
         <Route path="/pet/:id" component={ DetailPage }/>
@@ -22,6 +23,7 @@ function App() {
         <Route path="/signup" component={ RegisterPage } />
         <Route path="/signin" component={ LoginPage } />
       </Switch> 
+      <Footer/>
     </>
   );
 }

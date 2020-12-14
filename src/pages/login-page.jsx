@@ -30,7 +30,7 @@ function LoginPage(props) {
               <a className="fa fa-google mx-3"></a>
               <a className="fa fa-facebook mx-3"></a>
               <div>
-                <p className="mt-2">Need an account? <strong><a onClick={() => handleChangePage('/register')} style={{ textDecoration: 'none', color: 'blue' }}>Sign up</a></strong></p>
+                <p className="mt-2">Need an account? <strong><a onClick={() => handleChangePage('/signup')} style={{ textDecoration: 'none', color: 'blue' }}>Sign up</a></strong></p>
               </div>
             </div>
           </div>
