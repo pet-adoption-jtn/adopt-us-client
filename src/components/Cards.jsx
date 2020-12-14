@@ -1,11 +1,10 @@
 import React from 'react';
 
 export default function Cards({ petList }) {
-  console.log(petList, 'cards')
   return(
     <>
     {petList.map((pet => (
-      <div className="col-4 mb-4">
+      <div key={pet._id} className="col-4 mb-4">
         <div className="card text-center shadow" style={{width: '16rem'}}>
           <div className="image-container">
             <img src={pet.pictures} width="500px" height="200px" className="card-img-top" alt="pics" />

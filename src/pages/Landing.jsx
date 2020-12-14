@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
-import FilterDropdowns from '../components/FilterDropdowns';
-import Cards from '../components/Cards';
+import { FilterDropdowns, Cards, Loading } from '../components';
 import { fetchAllPets } from '../store/actions'
 import { useDispatch, useSelector } from 'react-redux';
-import Loading from '../components/Loading';
 
 export default function Landing() {
   const dispatch = useDispatch()
@@ -11,8 +9,8 @@ export default function Landing() {
 
   
   useEffect(() => {
-    dispatch(fetchAllPets(petList))
-  }, [dispatch, petList])
+    dispatch(fetchAllPets())
+  }, [dispatch])
   
   if (loading) {
     return <Loading />
