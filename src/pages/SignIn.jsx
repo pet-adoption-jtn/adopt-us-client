@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Toast } from '../config/swal'
 import { signIn } from '../store/actions'
+import { useDispatch } from 'react-redux'
 import '../style/css/login-page.css'
 
 function LoginPage(props) {

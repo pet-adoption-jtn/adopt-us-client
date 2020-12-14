@@ -133,7 +133,7 @@ export default function AddPetPage(props) {
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <button className="btn btn-primary"><span className="fas fa-paw"></span> Add</button>
+        <button className="btn btn-primary mb-5"><span className="fas fa-paw"></span> Add</button>
       </form>
     </div>
     </>
