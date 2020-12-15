@@ -8,7 +8,10 @@ import {
   FavoritePage, 
   FormAdoptionPage, 
   SignInPage, 
-  SignUpPage
+  SignUpPage,
+  AboutCat,
+  AboutDog,
+  Profile
 } from './pages'
 import { 
   NavBar,
@@ -40,6 +43,9 @@ function App() {
         <Route path="/favorites" component={ FavoritePage } />
         <Route path="/signup" component={ SignUpPage } />
         <Route path="/signin" component={ SignInPage } />
+        <Route path="/about/dog" component={AboutDog} />
+        <Route path="/about/cat" component={AboutCat} />
+        <Route path="/profile" component={Profile} />
       </Switch> 
       <Footer/>
     </>

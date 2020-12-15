@@ -7,7 +7,8 @@ import { useHistory } from 'react-router-dom'
 export default function OwnerPage (props) {
   const dispatch = useDispatch()
   const history = useHistory()
-  const my_pets = useSelector(state => state.owners_pets)
+  const { owners_pets, account } = useSelector(state => state)
+  
 
   useEffect(() => {
     dispatch(fetchOwnerPet())
@@ -45,35 +46,40 @@ export default function OwnerPage (props) {
             <th>Name</th>
             <th>Type</th>
             <th>Breed</th>
-            <th>Requested for Adoption</th>
             <th>Adopted</th>
+            <th>Requested for Adoption</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {
-            my_pets.map(pet => (
+            owners_pets.map(pet => (
               <tr key={pet._id}>
-                <td>{pet.name}</td>
-                <td>{pet.type}</td>
-                <td>{pet.breed}</td>
-                <td>
-                  {
-                    pet.request.length ? 'Requested' : '-'
-                  }
-                </td>
-                <td>
+                <td className="align-middle">{pet.name}</td>
+                <td className="align-middle">{pet.type}</td>
+                <td className="align-middle">{pet.breed}</td>
+                <td className="align-middle">
                   {
                     pet.status ? 'Adopted' : 'Not Adopted'
                   }
                 </td>
-                <td>
+                <td className="align-middle">
                   {
-                    pet.request.length ?
+                    pet.request.length ? pet.request.map(((person,index) => (
+                      <div className="my-4" key={index}>
+                        <p className="m-0 p-0">Requested by {person.email}</p>
+                      </div>
+                    ))) : '-'
+                  }
+                </td>
+                <td className="align-middle">
+                  {
+                    pet.request.length ? pet.request.map(((person, index) => (
                     <div>
-                      <button className="btn btn-outline-primary mr-2 radisBtn" onClick={() => handleAdoptPet({ pet, status: true })}><span className="fas fa-user-check"></span> Approve</button>
-                      <button className="btn btn-outline-danger radisBtn" onClick={() => handleAdoptPet({ pet, status: false })}><span className="fas fa-ban"></span> Cancel</button>
+                      <button className="btn btn-outline-primary mr-2 mb-2 radisBtn" onClick={() => handleAdoptPet({ pet, status: true, person })}><span className="fas fa-user-check"></span> Approve</button>
+                      <button className="btn btn-outline-danger mb-2 radisBtn" onClick={() => handleAdoptPet({ pet, status: false, person })}><span className="fas fa-ban"></span> Cancel</button>
                     </div>
+                    )))
                     :
                     <div>
                       <button className="btn btn-outline-primary mr-2 radisBtn"><span className="far fa-edit"></span> Edit</button>

@@ -28,6 +28,10 @@ export default function Navbar() {
     dispatch(fetchAllPets())
   }
 
+  const goToProfile = () => {
+
+    history.push('/profile')
+  }
   return (
     <>
       <div className="modal fade" id="Sing-in-Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -46,7 +50,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      <nav className="navbar navbar-expand-lg shadow-lg" style={{paddingLeft: '100px', paddingRight: '100px'}}>
+      <nav className="navbar navbar-expand-lg shadow-lg" style={{ paddingLeft: '100px', paddingRight: '100px' }}>
         <div className="container-fluid">
           <p className="navbar-brand m-0">
             <Link to="/">
@@ -66,6 +70,7 @@ export default function Navbar() {
                     <a>{account.username}<i className='fas fa-user-alt' style={{paddingLeft: '5px', paddingRight: '5px'}}></i></a>
                   </a>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a onClick={() => goToProfile()} className="dropdown-item">Profile</a></li>
                     <li><a onClick={() => goToMyPets()} className="dropdown-item">MyPets</a></li>
                     <li><a onClick={() => signOut()} className="dropdown-item">Sign Out</a></li>
                   </ul>

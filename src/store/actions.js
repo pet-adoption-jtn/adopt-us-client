@@ -33,10 +33,24 @@ export function userSignUp(dataSignUp) {
   }
 }
 
-export function fetchAllPets () {
+export function fetchAllPets (foo = {}) {
+  const { type, color, gender, age } = foo
+  let query = []
+  if (type) {
+    query.push(`type=${type}`)
+  }
+  if (color) {
+    query.push(`color=${color}`)
+  }
+  if (gender) {
+    query.push(`gender=${gender}`)
+  }
+  if (age) {
+    query.push(`age=${age}`)
+  }
   return (dispatch) => {
     axios({
-      url: '/pets',
+      url: `/pets?${query.join('&')}`,
       method: 'GET'
     })
       .then(({ data }) => {
@@ -193,7 +207,7 @@ export function requestAdoption (payload) {
 
 }
 
-export function adoptPet({ pet, status }) {
+export function adoptPet({ pet, status, person: adopter }) {
   return (dispatch) => {
     const access_token = localStorage.getItem('access_token')
     axios({
@@ -203,11 +217,13 @@ export function adoptPet({ pet, status }) {
         access_token
       },
       data: {
-        status
+        pet,
+        status,
+        adopter
       }
     })
       .then(({ data }) => {
-
+        console.log(data)
       })
       .catch(console.log)
   }
@@ -241,29 +257,8 @@ export function removeFavorites (id) {
   }
 }
 
-export function filteredByType (type, age, gender, color) {
-  return (dispatch) => {
-    axios({
-      method: 'GET',
-      url: `/pets/filter/${type}/${age}/${gender}/${color}`
-    })
-      .then(({ data }) => {
-        dispatch({
-          type: 'SET_PET_DATA',
-          payload: data
-        })
-      })
-      .catch(console.log)
-      .finally(() => {
-        dispatch({
-          type: 'SET_LOADING_DATA',
-          payload: false
-        })
-      })
-  }
-}
 
-export function handleAdoptionForm(pet_detail, form_data) {
+export function handleAdoptionForm(pet_detail, form_data, adopter) {
   return (dispatch) => {
     const access_token = localStorage.getItem('access_token')
     axios({
@@ -271,7 +266,8 @@ export function handleAdoptionForm(pet_detail, form_data) {
       method: 'POST',
       data: {
         pet_detail,
-        form_data
+        form_data,
+        adopter
       },
       headers: {
         access_token
