@@ -41,7 +41,7 @@ function RegisterPage(props) {
         <div className="row justify-content-center">
           <div className="padingRegis col-5 text-center">
             <div className="w3-card-4 p-3 bg-light" style={{ borderRadius: '10px' }}>
-              <h1 className="titleLogin">Sign up</h1>
+              <h1 className="titleLogin">Sign Up</h1>
               <form onSubmit={(e) => handleSubmitSignUp(e)}>
                 <input 
                   onChange={(e) => handleChangeValue(e)} 
@@ -88,7 +88,7 @@ function RegisterPage(props) {
                   required
                 ></input>
                 <div className="mb-4" style={{ paddingRight: '50px', paddingLeft: '50px' }}>
-                  <button type="submit" className="BorRegis btn btn-outline-dark form-control">Sign up</button>
+                  <button type="submit" className="btnSignInUp btn btn-outline-dark form-control">Sign up</button>
                 </div>
               </form>
               <hr/>
@@ -96,8 +96,8 @@ function RegisterPage(props) {
                 <div>
                   <p>Or Sign in with</p>
                 </div>
-                <a className="fa fa-google mx-3"></a>
-                <a className="fa fa-facebook mx-3"></a>
+                <a style={{ textDecoration: 'none' }} className="fa fa-google mx-3"></a>
+                <a style={{ textDecoration: 'none' }} className="fa fa-facebook mx-3"></a>
                 <div>
                   <p className="mt-2">Already have an account ? <strong><a onClick={() => handleChangePage('/signin')} style={{ textDecoration: 'none', color: 'blue' }}>Sign in</a></strong></p>
                 </div>
