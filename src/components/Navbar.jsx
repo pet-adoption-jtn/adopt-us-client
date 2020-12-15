@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import { fetchAllPets } from '../store/actions';
 import SignInPage from '../pages/SignIn'
 import SignUpPage from '../pages/SignUp'
 
 export default function Navbar() {
   const history = useHistory()
-  const { access_token } = useSelector(state => state)
-  const dispatch = useDispatch()
+  const { access_token, account } = useSelector(state => state)
 
+  const dispatch = useDispatch()
   const goToMyPets = () => {
     history.push('/myPets')
   }
@@ -21,6 +22,10 @@ export default function Navbar() {
     })
     localStorage.clear()
     history.push('/')
+  }
+
+  const backToHome = () => {
+    dispatch(fetchAllPets())
   }
 
   return (
@@ -44,7 +49,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg boxFooter mb-5" style={{paddingLeft: '100px', paddingRight: '100px'}}>
         <div className="container-fluid">
           <p className="navbar-brand m-0">
-            <Link to='/'>
+            <Link to="/>
               <img src="./adoptUs.png" alt="logo" width="60" height="60" />
             </Link>
           </p>
@@ -58,7 +63,7 @@ export default function Navbar() {
                 ? 
                 <li className="nav-item dropdown">
                   <a className="content nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Account
+                    <a>{account.username}<i className='fas fa-user-alt' style={{paddingLeft: '5px', paddingRight: '5px'}}></i></a>
                   </a>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a onClick={() => goToMyPets()} className="dropdown-item">MyPets</a></li>

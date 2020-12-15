@@ -232,3 +232,49 @@ export function removeFavorites (id) {
       .catch(console.log)
   }
 }
+
+export function filteredByType (type, age, gender, color) {
+  return (dispatch) => {
+    axios({
+      method: 'GET',
+      url: `/pets/filter/${type}/${age}/${gender}/${color}`
+    })
+      .then(({ data }) => {
+        dispatch({
+          type: 'SET_PET_DATA',
+          payload: data
+        })
+      })
+      .catch(console.log)
+      .finally(() => {
+        dispatch({
+          type: 'SET_LOADING_DATA',
+          payload: false
+        })
+      })
+  }
+}
+
+export function handleAdoptionForm(pet_detail, form_data) {
+  return (dispatch) => {
+    const access_token = localStorage.getItem('access_token')
+    axios({
+      url: '/pets/request_adoption',
+      method: 'POST',
+      data: {
+        pet_detail,
+        form_data
+      },
+      headers: {
+        access_token
+      }
+    })
+      .then(({ data }) => {
+        console.log(data)
+      })
+      .catch(console.log)
+      .finally(() => {
+        console.log('loading')
+      })
+  }
+}

@@ -4,6 +4,7 @@ import { Toast } from '../config/swal'
 import { signIn } from '../store/actions'
 import { useDispatch } from 'react-redux'
 import '../style/css/login-page.css'
+import { useDispatch } from 'react-redux'
 
 function LoginPage(props) {
   const [formInput, setFormInput] = useState({
@@ -30,19 +31,15 @@ function LoginPage(props) {
       .then(({ data }) => {
         response = data
         localStorage.setItem('access_token', data.access_token)
-        return dispatch({
+        localStorage.setItem('account', JSON.stringify(data.account))
+        dispatch({
           type: 'SET_ACCESS_TOKEN',
           payload: data.access_token
         })
-      })
-      .then(() => {
-
-        return dispatch({
+        dispatch({
           type: 'SET_ACCOUNT',
           payload: response.account
         })
-      })
-      .then(() => {
         Toast.fire({
           icon: 'success',
           title: 'Welcome!'

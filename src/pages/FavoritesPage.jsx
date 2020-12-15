@@ -11,7 +11,7 @@ function FavoritesPage(props) {
 
   useEffect(() => {
     dispatch(fetchFavorites())
-  }, [])
+  }, [dispatch])
 
   function handleUnFavorites(id) {
     dispatch(removeFavorites(id))

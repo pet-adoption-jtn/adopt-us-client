@@ -14,7 +14,7 @@ export default function DetailPage (props) {
 
   useEffect(() => {
     dispatch(getDetails(id))
-  }, [])
+  }, [dispatch, id])
   
 
   function handleAdoptButton () {

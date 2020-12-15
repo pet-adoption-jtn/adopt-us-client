@@ -20,8 +20,12 @@ function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     const access_token = localStorage.getItem('access_token')
+    const account = localStorage.getItem('account')
     if (access_token) {
       dispatch({ type: "SET_ACCESS_TOKEN", payload: access_token })
+    }
+    if (account) {
+      dispatch({ type: 'SET_ACCOUNT', payload: JSON.parse(account) })
     }
   }, [dispatch])
   return (

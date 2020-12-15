@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { filteredByType } from '../store/actions';
 import '../style/css/filter.css'
 
 export default function FilterDropdowns() {
