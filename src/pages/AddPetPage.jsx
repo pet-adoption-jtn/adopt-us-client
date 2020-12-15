@@ -37,9 +37,12 @@ export default function AddPetPage(props) {
 
   return (
     <>
-    <div className="container mt-5">
-      <h3 className="text-center">Add A New Pet</h3>
-      <form onSubmit={e => handleSubmit(e)}>
+    <div className="container my-5">
+      <form className="form p-5 border shadow-lg" style={{ borderRadius: '10px' }} onSubmit={e => handleSubmit(e)}>
+        <div className="d-flex justify-content-between">
+          <h2 className="mt-4">Add Your Pet</h2>
+          <img src={'./adoptUs.png'} alt={'Adopt.Us'}></img>
+        </div>
         <div className="form-group">
           <label htmlFor="name">Name</label>
           <input 
@@ -133,7 +136,9 @@ export default function AddPetPage(props) {
             onChange={(e) => handleChange(e)}
           />
         </div>
-        <button className="btn btn-primary mb-5"><span className="fas fa-paw"></span> Add</button>
+        <div className="d-flex justify-content-center">
+          <button style={{ paddingRight: '100px', paddingLeft: '100px', borderRadius: '25px' }} className="mt-3 btn btn-outline-primary mb-5"><span className="fas fa-paw"></span> Add</button>
+        </div>
       </form>
     </div>
     </>

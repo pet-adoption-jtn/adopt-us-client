@@ -8,8 +8,27 @@
 .btnSubmitFilter {
   border-radius: 50px;
   background-color: rgb(180,61,102);
+  border-color: rgb(180,61,102);
+  color: white;
+}
+
+.btnSubmitFilter:hover {
+  background-color: white;
+  color: rgb(180,61,102);
 }
 
 .colorText {
   color: rgb(180,61,102);
+}
+
+.btnReset {
+  border-radius: 50px;
+  background-color: white;
+  color: rgb(180,61,102);
+  border-color: rgb(180,61,102);
+}
+
+.btnReset:hover {
+  background-color: rgb(180,61,102);
+  color: white;
 }
