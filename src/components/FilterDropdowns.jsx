@@ -93,7 +93,7 @@ export default function FilterDropdowns() {
             </div>
           </div>
         </div>
-        <button type="submit" className="btn btnSubmitFilter text-light my-3">Submit</button>
+        <button type="submit" className="btn btnSubmitFilter text-light my-3 form-control">Submit</button>
     </form>
     </>
   )

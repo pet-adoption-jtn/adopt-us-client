@@ -46,10 +46,10 @@ export default function Navbar() {
         </div>
       </div>
 
-      <nav className="navbar navbar-expand-lg boxFooter mb-5" style={{paddingLeft: '100px', paddingRight: '100px'}}>
+      <nav className="navbar navbar-expand-lg shadow-lg" style={{paddingLeft: '100px', paddingRight: '100px'}}>
         <div className="container-fluid">
           <p className="navbar-brand m-0">
-            <Link to="/>
+            <Link to="/">
               <img src="./adoptUs.png" alt="logo" width="60" height="60" />
             </Link>
           </p>
