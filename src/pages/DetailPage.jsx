@@ -118,6 +118,8 @@ export default function DetailPage (props) {
                     <h6 className="fas fa-map-marker-alt"><span className="ml-3">{pet_detail.Owner.address}</span></h6>
                     <br/>
                     <h6 className="fas fa-phone-alt"><span className="ml-3">{pet_detail.Owner.phone}</span></h6>
+                    <br/>
+                    <h6 className="fas fa-envelope"><span className="ml-3">{pet_detail.Owner.email}</span></h6>
                   </div>
                 </div>
               </div>

@@ -4,7 +4,6 @@ import { Toast } from '../config/swal'
 import { signIn } from '../store/actions'
 import { useDispatch } from 'react-redux'
 import '../style/css/login-page.css'
-import { useDispatch } from 'react-redux'
 
 function LoginPage(props) {
   const [formInput, setFormInput] = useState({

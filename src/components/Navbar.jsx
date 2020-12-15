@@ -49,8 +49,8 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg boxFooter mb-5" style={{paddingLeft: '100px', paddingRight: '100px'}}>
         <div className="container-fluid">
           <p className="navbar-brand m-0">
-            <Link to="/>
-              <img src="./adoptUs.png" alt="logo" width="60" height="60" />
+            <Link to="/">
+              <img onClick={() => backToHome()} src="./adoptUs.png" alt="logo" width="60" height="60" />
             </Link>
           </p>
           <div>

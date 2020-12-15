@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import '../style/css/form_adoption-page.css'
 import { handleAdoptionForm } from '../store/actions'
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
 function FormAdoptionPage({ location }) {
+  const history = useHistory()
   const dispatch = useDispatch()
   const { pet_detail } = location.state
   const [formInput, setFormInput] = useState({
@@ -36,9 +38,11 @@ function FormAdoptionPage({ location }) {
     })
   }
 
-  const handleSubmitForm = (event) => {
+  const handleSubmitForm = async (event) => {
     event.preventDefault()
-    dispatch(handleAdoptionForm(pet_detail, formInput))
+    await dispatch(handleAdoptionForm(pet_detail, formInput))
+
+    history.push('/')
   }
 
   return (
@@ -57,7 +61,8 @@ function FormAdoptionPage({ location }) {
                 type="text" 
                 className="BorRegis form-control" 
                 required 
-                value={formInput.first_name} 
+                value={formInput.first_name}
+                placeholder="first name"
                 onChange={(e) => handleChange(e)}
               ></input>
               <input 
@@ -66,6 +71,7 @@ function FormAdoptionPage({ location }) {
                 className="BorRegis form-control"
                 required
                 value={formInput.last_name}
+                placeholder="last name"
                 onChange={(e) => handleChange(e)}
               ></input>
             </div>
@@ -118,7 +124,7 @@ function FormAdoptionPage({ location }) {
             ></input>
 
             <div className="px-1">
-              <label style={{ fontSize: '15px', textAlign: 'start', color: '#748596' }}><strong style={{ color: 'red' }}>*</strong> How may hours per day would the pet be alone ?</label>
+              <label style={{ fontSize: '15px', textAlign: 'start', color: '#748596' }}><strong style={{ color: 'red' }}>*</strong> How many hours per day would the pet be alone ?</label>
             </div>
             <input
               onChange={handleChange}
