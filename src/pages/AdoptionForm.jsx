@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import '../style/css/form_adoption-page.css'
 import { handleAdoptionForm } from '../store/actions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 function FormAdoptionPage({ location }) {
   const history = useHistory()
   const dispatch = useDispatch()
   const { pet_detail } = location.state
+  const { account } = useSelector(state => state)
   const [formInput, setFormInput] = useState({
     first_name: '',
     last_name: '',
@@ -40,7 +41,7 @@ function FormAdoptionPage({ location }) {
 
   const handleSubmitForm = async (event) => {
     event.preventDefault()
-    await dispatch(handleAdoptionForm(pet_detail, formInput))
+    await dispatch(handleAdoptionForm(pet_detail, formInput, account))
 
     history.push('/')
   }
