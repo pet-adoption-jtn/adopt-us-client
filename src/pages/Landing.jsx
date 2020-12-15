@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
 import { FilterDropdowns, Cards, Loading } from '../components';
-import { fetchAllPets } from '../store/actions'
+import { fetchAllPets } from '../store/actions';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { AboutCat } from '.';
 
 export default function Landing() {
   const dispatch = useDispatch()
   const { petList, loading }  = useSelector(state => state)
+  const history = useHistory()
 
   useEffect(() => {
     dispatch(fetchAllPets())
@@ -13,6 +16,14 @@ export default function Landing() {
   
   if (loading) {
     return <Loading />
+  }
+
+  const aboutDog = () => {
+    history.push('/about/dog')
+  }
+
+  const aboutCat = () => {
+    history.push('/about/cat')
   }
 
   return(
