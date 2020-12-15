@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { filteredByType } from '../store/actions';
 import '../style/css/filter.css'
 
 export default function FilterDropdowns() {
@@ -91,7 +93,7 @@ export default function FilterDropdowns() {
             </div>
           </div>
         </div>
-        <button type="submit" className="btn btnSubmitFilter text-light my-3">Submit</button>
+        <button type="submit" className="btn btnSubmitFilter text-light my-3 form-control">Submit</button>
     </form>
     </>
   )

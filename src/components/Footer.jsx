@@ -1,13 +1,11 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 import '../style/css/fotter.css'
 
 function FooterComponent(props) {
-  const history = useHistory()
 
   return (
     <div className="posisiFooter">
-      <div className="boxFooter text-center p-3 d-flex justify-content-between">
+      <div className=" text-center p-3 d-flex justify-content-between">
         <div>
           <img style={{ height: '30px', marginLeft: '10px' }} src={'./logoName.png'} alt={'logo Adopt.Us'}></img>
         </div>

@@ -14,7 +14,7 @@ export default function DetailPage (props) {
 
   useEffect(() => {
     dispatch(getDetails(id))
-  }, [])
+  }, [dispatch, id])
   
 
   function handleAdoptButton () {
@@ -34,7 +34,7 @@ export default function DetailPage (props) {
 
   return (
     <>
-    <div className="container my-2">
+    <div className="container my-5">
       <div id="MyCarousel" className="carousel slide w3-card-4" data-ride="carousel">
         <div className="carousel-inner">
           {
@@ -45,11 +45,11 @@ export default function DetailPage (props) {
             ))
           }
           <a href="#MyCarousel" className="carousel-control-prev" role="button" data-slide="prev">
-            <span className="carousel-control-prev-icon bg-dark p-5" style={{ borderRadius: '50px' }}  aria-hidden="true"></span>
+            <span className="carousel-control-prev-icon bg-dark p-3" style={{ borderRadius: '50px' }} aria-hidden="true"></span>
             <span className="sr-only">Previous</span>
           </a>
           <a href="#MyCarousel" className="carousel-control-next" role="button" data-slide="next">
-            <span className="carousel-control-next-icon bg-dark p-5" style={{ borderRadius: '50px' }} aria-hidden="true"></span>
+            <span className="carousel-control-next-icon bg-dark p-3" style={{ borderRadius: '50px' }} aria-hidden="true"></span>
             <span className="sr-only">Next</span>
           </a>
         </div>
