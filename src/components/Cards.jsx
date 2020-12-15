@@ -24,7 +24,7 @@ export default function Cards({ petList }) {
           </div>
           <div className="card-body">
             <h4 className="card-title">{(pet.name.toUpperCase())}</h4>
-              <div style={{fontSize: '14px', display: 'flex', justifyContent: "space-between", paddingRight: '40px', paddingLeft: '40px' }}>
+              <div style={{fontSize: '14px', display: 'flex', justifyContent: 'space-evenly' }}>
                 <p>{pet.age}</p>
                 <p><span style={{backgroundColor: '#ce0d81', padding: '5px', color: 'white', borderRadius: '10px' }}>{pet.breed}</span></p>
               </div>
