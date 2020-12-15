@@ -39,7 +39,7 @@ export default function OwnerPage (props) {
     <>
     <div className="container my-5">
       <h1 className="mb-3 titleFavorites">Your Pets</h1>
-      <button className="btn btn-success mb-3" onClick={() => history.push('/addPet')}><span className="fas fa-paw"></span>  Add a new Pet</button>
+      <button className="btn btn-outline-success mb-3 radisBtn" onClick={() => history.push('/addPet')}><span className="fas fa-paw"></span>  Add a new Pet</button>
       <table className="table text-center">
         <thead>
           <tr>
@@ -82,8 +82,8 @@ export default function OwnerPage (props) {
                     )))
                     :
                     <div>
-                      <button className="btn btn-primary mr-2">Edit</button>
-                      <button className="btn btn-danger" onClick={() => handleDeletePet(pet._id)}>Delete</button>
+                      <button className="btn btn-outline-primary mr-2 radisBtn"><span className="far fa-edit"></span> Edit</button>
+                      <button className="btn btn-outline-danger radisBtn" onClick={() => handleDeletePet(pet._id)}><span className="fas fa-trash-alt"></span> Delete</button>
                     </div>
                   }
                 </td>
