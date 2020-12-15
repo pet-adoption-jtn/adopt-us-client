@@ -55,29 +55,29 @@ export default function OwnerPage (props) {
           {
             owners_pets.map(pet => (
               <tr key={pet._id}>
-                <td>{pet.name}</td>
-                <td>{pet.type}</td>
-                <td>{pet.breed}</td>
-                <td>
+                <td className="align-middle">{pet.name}</td>
+                <td className="align-middle">{pet.type}</td>
+                <td className="align-middle">{pet.breed}</td>
+                <td className="align-middle">
                   {
                     pet.status ? 'Adopted' : 'Not Adopted'
                   }
                 </td>
-                <td>
+                <td className="align-middle">
                   {
                     pet.request.length ? pet.request.map(((person,index) => (
-                      <div className="pt-2" key={index}>
-                        <small>Requested by {person.email}</small>
+                      <div className="my-4" key={index}>
+                        <p className="m-0 p-0">Requested by {person.email}</p>
                       </div>
                     ))) : '-'
                   }
                 </td>
-                <td>
+                <td className="align-middle">
                   {
                     pet.request.length ? pet.request.map(((person, index) => (
                     <div>
-                      <button className="btn btn-primary btn-sm mr-2 mb-2" onClick={() => handleAdoptPet({ pet, status: true, person })}>Approve</button>
-                      <button className="btn btn-danger btn-sm mb-2" onClick={() => handleAdoptPet({ pet, status: false, person })}>Cancel</button>
+                      <button className="btn btn-outline-primary mr-2 mb-2 radisBtn" onClick={() => handleAdoptPet({ pet, status: true, person })}><span className="fas fa-user-check"></span> Approve</button>
+                      <button className="btn btn-outline-danger mb-2 radisBtn" onClick={() => handleAdoptPet({ pet, status: false, person })}><span className="fas fa-ban"></span> Cancel</button>
                     </div>
                     )))
                     :

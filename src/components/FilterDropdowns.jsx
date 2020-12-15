@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import '../style/css/filter.css';
 import { fetchAllPets } from '../store/actions';
+import '../style/css/filter.css';
 
 export default function FilterDropdowns() {
   const dispatch = useDispatch()
@@ -20,11 +20,18 @@ export default function FilterDropdowns() {
       ...dataFilter,
       [key]: value
     })
+  }
 
-    console.log({
-      ...dataFilter,
-      [key]: value
-    })
+  const handleFilterForm = (e) => {
+    e.preventDefault()
+
+    dispatch(fetchAllPets(dataFilter))
+  }
+
+  const resetForm = (e) => {
+    e.preventDefault()
+
+    dispatch(fetchAllPets())
   }
 
   const handleFilterForm = (e) => {

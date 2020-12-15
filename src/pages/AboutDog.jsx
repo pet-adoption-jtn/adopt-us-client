@@ -3,10 +3,11 @@ import React from 'react';
 export default function AboutDog() {
   return (
     <>
-      <div className="container">
-        <h1 className="text-center">About Dog</h1>
+      <div className="container my-5">
+        <h1 className="">About Dog</h1>
         <div className="row">
-          <div className="col-12 border">
+          <div className="border px-5 py-3 my-3 shadow-lg" style={{ borderRadius: '10px '}}>
+
             <h3>10 Facts That You Must Know About Dog</h3>
             <ol>
               <li>

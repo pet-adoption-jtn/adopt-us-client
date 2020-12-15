@@ -50,7 +50,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      <nav className="navbar navbar-expand-lg shadow-lg" style={{paddingLeft: '100px', paddingRight: '100px'}}>
+      <nav className="navbar navbar-expand-lg shadow-lg" style={{ paddingLeft: '100px', paddingRight: '100px' }}>
         <div className="container-fluid">
           <p className="navbar-brand m-0">
             <Link to="/">

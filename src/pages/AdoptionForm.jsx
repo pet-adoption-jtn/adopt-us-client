@@ -47,7 +47,7 @@ function FormAdoptionPage({ location }) {
   }
 
   return (
-  <div className="bgLogin">
+  <div className="">
     <div className="container my-5">
       <div className="row justify-content-center">
         <div className=" padingRegis col-12">
@@ -133,6 +133,7 @@ function FormAdoptionPage({ location }) {
               <input
                 onChange={handleChange}
                 name="hours_pet_alone"
+                min='0'
                 type="number" 
                 className="BorRegis form-control my-3"
                 value={formInput.hours_pet_alone}
