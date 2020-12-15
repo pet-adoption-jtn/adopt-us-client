@@ -66,3 +66,15 @@
 .borderHorver {
   padding: 75px;
 }
+
+.closedPage {
+  height: 20px;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+/* .modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+} */

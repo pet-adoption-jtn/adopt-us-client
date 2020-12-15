@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: 'Rubik', sans-serif;
@@ -8,6 +12,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   padding: 0;
+  min-height: 100%;
+  padding-bottom: 60px;
+  position: relative;
 }
 
 .navbar {
@@ -28,19 +35,21 @@ body {
 
 .content:hover {
   cursor: pointer;
-  border-bottom-style: solid;
-}
-
-.btn-1 {
-  background-color: #fff;
   color: #ab0b6b;
+  border-bottom: solid;
   border-color: #ab0b6b;
 }
 
-.btn-1:hover {
-  background-color: #ab0b6b;
+.btn2 {
+  background-color: #fff;
+  color: #1A76FB;
+  border-color: #1A76FB;
+}
+
+.btn2:hover {
+  background-color: #1A76FB;
   color: #fff;
-  border-color: #ab0b6b;
+  border-color: #1A76FB;
 }
 
 .side:hover {
@@ -49,7 +58,7 @@ body {
 
 .content {
   font-size: 20px;
-  color: #f0199a;
+  color: #ab0b6b;
   font-weight: 500;
 }
 

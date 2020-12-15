@@ -10,7 +10,8 @@ const initialState = {
   loading: true,
   access_token: '',
   account: {},
-  favorites_load: true
+  favorites_load: true,
+  username: ''
 }
 
 function reducer(state = initialState, action) {
@@ -40,6 +41,8 @@ function reducer(state = initialState, action) {
       return { ...state, account: payload }
     case "DELETE_PET":
       return { ...state, owners_pets: state.owners_pets.filter(pet => pet._id.toString() !== payload.toString()) }
+    case "SET_USERNAME":
+      return { ...state, username: payload }  
     default:
       return state
   }
