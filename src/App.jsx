@@ -10,7 +10,8 @@ import {
   SignInPage, 
   SignUpPage,
   AboutCat,
-  AboutDog
+  AboutDog,
+  Profile
 } from './pages'
 import { 
   NavBar,
@@ -44,6 +45,7 @@ function App() {
         <Route path="/signin" component={ SignInPage } />
         <Route path="/about/dog" component={AboutDog} />
         <Route path="/about/cat" component={AboutCat} />
+        <Route path="/profile" component={Profile} />
       </Switch> 
       <Footer/>
     </>

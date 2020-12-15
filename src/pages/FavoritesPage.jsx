@@ -22,7 +22,7 @@ function FavoritesPage(props) {
       <div className="container">
         <div className="">
           <div className="mt-5">
-            <h1 className="titleFavorites">Your Favorites Pats</h1>
+            <h1 className="titleFavorites">Your Favorites Pets</h1>
           </div>
           <div className="d-flex row mb-5">
             {
