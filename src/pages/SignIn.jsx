@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Toast } from '../config/swal'
-import { signIn } from '../store/actions'
+import { signIn, googleSignIn } from '../store/actions'
 import { useDispatch } from 'react-redux'
+import { GoogleLogin } from 'react-google-login'
 import '../style/css/login-page.css'
 
 function LoginPage(props) {
@@ -48,6 +49,30 @@ function LoginPage(props) {
       .catch(console.log)
   }
 
+  const responseGoogle = (response) => {
+    const google_token = response.getAuthResponse().id_token
+    googleSignIn(google_token)
+    .then(({ data }) => {
+      response = data
+      localStorage.setItem('access_token', data.access_token)
+      localStorage.setItem('account', JSON.stringify(data.account))
+      dispatch({
+        type: 'SET_ACCESS_TOKEN',
+        payload: data.access_token
+      })
+      dispatch({
+        type: 'SET_ACCOUNT',
+        payload: response.account
+      })
+      Toast.fire({
+        icon: 'success',
+        title: 'Welcome!'
+      })
+      history.push('/')
+    })
+    .catch(console.log)
+  }
+
   return (
     <div className="bgLogin">
       <div className="container">
@@ -77,7 +102,7 @@ function LoginPage(props) {
                   required
                 ></input>
                 <div className="mb-4" style={{ paddingRight: '50px', paddingLeft: '50px' }}>
-                  <button type="submit" style={{ borderRadius: '50px' }} className="btn btn-outline-dark form-control">Sign in</button>
+                  <button type="submit" className="btnSignInUp btn btn-outline-dark form-control">Sign In</button>
                 </div>
               </form>
               <hr/>
@@ -85,8 +110,15 @@ function LoginPage(props) {
                 <div>
                   <p>Or Sign in with</p>
                 </div>
-                <a className="fa fa-google mx-3"></a>
-                <a className="fa fa-facebook mx-3"></a>
+                <GoogleLogin
+                  clientId="281372448495-9egpusn6t7nq49euno6bv5ffi9qesq2s.apps.googleusercontent.com"
+                  buttonText="Login"
+                  onSuccess={responseGoogle}
+                  onFailure={responseGoogle}
+                  cookiePolicy={'single_host_origin'}
+                />
+                {/* <a onClick={() => onSignIn('281372448495-9egpusn6t7nq49euno6bv5ffi9qesq2s.apps.googleusercontent.com')} style={{ textDecoration: 'none' }} className="fa fa-google mx-3"></a>
+                <a style={{ textDecoration: 'none' }} className="fa fa-facebook mx-3"></a> */}
                 <div>
                   <p className="mt-2">Need an account? <strong><a onClick={() => history.push('/signup')} style={{ textDecoration: 'none', color: 'blue' }}>Sign up</a></strong></p>
                 </div>

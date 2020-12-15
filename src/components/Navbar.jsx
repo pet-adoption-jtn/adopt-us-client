@@ -30,7 +30,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="modal fade" id="Sing-in-Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div className="modal fade" id="Sing-in-Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div className="modal-dialog-centered modal-fullscreen">
             <div style={{ backgroundColor: 'rgb(0, 0, 0, 0.5)' }} className="modal-content">
               <SignInPage/>
@@ -38,7 +38,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div className="modal fade" id="Sing-up-Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div className="modal fade" id="Sing-up-Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div className="modal-dialog-centered modal-fullscreen">
             <div style={{ backgroundColor: 'rgb(0, 0, 0, 0.5)' }} className="modal-content">
               <SignUpPage/>
@@ -50,7 +50,7 @@ export default function Navbar() {
         <div className="container-fluid">
           <p className="navbar-brand m-0">
             <Link to="/">
-              <img onClick={() => backToHome()} src="./adoptUs.png" alt="logo" width="60" height="60" />
+              <img onClick={() => backToHome()} src={"./adoptUs.png"} alt="Adopt.Us" width="60" height="60" />
             </Link>
           </p>
           <div>
@@ -63,7 +63,7 @@ export default function Navbar() {
                 ? 
                 <li className="nav-item dropdown">
                   <a className="content nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <a><i className='fas fa-user-alt' style={{paddingLeft: '5px', paddingRight: '5px'}}></i></a>
+                    <a>{account.username}<i className='fas fa-user-alt' style={{paddingLeft: '5px', paddingRight: '5px'}}></i></a>
                   </a>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a onClick={() => goToMyPets()} className="dropdown-item">MyPets</a></li>

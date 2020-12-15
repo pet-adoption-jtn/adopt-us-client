@@ -57,3 +57,14 @@
 .BorRegis {
   border-radius: 50px;
 }
+
+.btnSignInUp {
+  border-color: rgb(182,74,124);
+  color: rgb(182,74,124);
+  border-radius: 50px;
+}
+
+.btnSignInUp:hover {
+  background-color: rgb(182,74,124);
+  color: white;
+}

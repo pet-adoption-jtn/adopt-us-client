@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
-import { getDetails, requestAdoption } from '../store/actions'
+import { getDetails } from '../store/actions'
 import { Loading } from "../components";
 import { Swal } from '../config/swal';
 
@@ -95,13 +95,11 @@ export default function DetailPage (props) {
             <div className="col-12">
               <div className="card">
                 <div className="card-body">
-                  <button className="btn btn-purple btn-block">
+                  <button className="btn btn-purple btn-block radisBtn">
                     <span className="fas fa-heart mr-2"></span>Favorite {pet_detail.name}
                   </button>
                   <br/>
-                  <button className="btn btn-outline-primary btn-block" onClick={() => handleAdoptButton()}>
-                    Adopt {pet_detail.name}
-                  </button>
+                  <button className="btn btn-outline-primary btn-block radisBtn" onClick={() => handleAdoptButton()}><span className="fas fa-paw"></span> Adopt {pet_detail.name}</button>
                 </div>
               </div>
             </div>
