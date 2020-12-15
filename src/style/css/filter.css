@@ -1,0 +1,17 @@
+
+.btnFilter {
+  border-radius: 50px;
+  color: black;
+  text-align: center;
+}
+
+.btnSubmitFilter {
+  border-radius: 50px;
+  padding-left: 90px;
+  padding-right: 90px;
+  background-color: rgb(180,61,102);
+}
+
+.colorText {
+  color: rgb(180,61,102);
+}

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { fetchAllPets } from '../store/actions';
+import SignInPage from '../pages/SignIn'
+import SignUpPage from '../pages/SignUp'
 
 export default function Navbar() {
   const history = useHistory()
@@ -28,19 +30,33 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg" style={{paddingLeft: '100px', paddingRight: '100px'}}>
+      <div className="modal fade" id="Sing-in-Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div className="modal-dialog-centered modal-fullscreen">
+            <div style={{ backgroundColor: 'rgb(0, 0, 0, 0.5)' }} className="modal-content">
+              <SignInPage/>
+            </div>
+        </div>
+      </div>
+
+      <div className="modal fade" id="Sing-up-Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div className="modal-dialog-centered modal-fullscreen">
+            <div style={{ backgroundColor: 'rgb(0, 0, 0, 0.5)' }} className="modal-content">
+              <SignUpPage/>
+            </div>
+        </div>
+      </div>
+
+      <nav className="navbar navbar-expand-lg boxFooter mb-5" style={{paddingLeft: '100px', paddingRight: '100px'}}>
         <div className="container-fluid">
-          <p className="navbar-brand">
-            <Link to='/'>
-              <img onClick={() => backToHome()} src="./adoptUs.png" alt="logo" width="80" height="80" />
+          <p className="navbar-brand m-0">
+            <Link to="/>
+              <img src="./adoptUs.png" alt="logo" width="60" height="60" />
             </Link>
           </p>
-          <div className="">
+          <div>
             <ul className="navbar-nav">
-              <li className="nav-item">
-                  <Link to="/favorites" className="content nav-link">
-                    <i className='fas fa-heart' style={{marginRight: '10px'}}></i>
-                  </Link>
+              <li className="nav-item justify-content-between">
+                  <Link style={{ textDecoration: 'none' }} to="/favorites" className="content nav-link"><i className="fa fa-heart-o p-0"></i></Link>
               </li>
               {
                 access_token
@@ -55,9 +71,9 @@ export default function Navbar() {
                   </ul>
                 </li>
                 : 
-                <li className="nav-item pt-1" style={{marginLeft: '20px', marginRight: '15px'}}>
-                  <Link to="/signin">
-                    <p className="content nav-link" style={{textDecoration: 'none'}}>Sign In</p>
+                <li className="nav-item">
+                  <Link style={{ textDecoration: 'none' }} to="/signin">
+                    <p className="content nav-link m-0" style={{textDecoration: 'none'}}>Sign In</p>
                   </Link>
                 </li>
               }
@@ -65,9 +81,10 @@ export default function Navbar() {
                 access_token
                 ? ''
                 :
-                <li className="nav-item pt-1">
-                  <Link to="/signup">
-                    <p className="content nav-link" style={{textDecoration: 'none'}}>Sign Up</p>
+                <li className="nav-item">
+                  <Link style={{ textDecoration: 'none' }} to="/signup">
+                    <p className="content nav-link m-0" style={{textDecoration: 'none'}}>Sign Up</p>
+
                   </Link>
                 </li>
               }
