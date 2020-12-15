@@ -7,7 +7,8 @@ import { useHistory } from 'react-router-dom'
 export default function OwnerPage (props) {
   const dispatch = useDispatch()
   const history = useHistory()
-  const my_pets = useSelector(state => state.owners_pets)
+  const { owners_pets, account } = useSelector(state => state)
+  
 
   useEffect(() => {
     dispatch(fetchOwnerPet())
@@ -45,23 +46,18 @@ export default function OwnerPage (props) {
             <th>Name</th>
             <th>Type</th>
             <th>Breed</th>
-            <th>Requested for Adoption</th>
             <th>Adopted</th>
+            <th>Requested for Adoption</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {
-            my_pets.map(pet => (
+            owners_pets.map(pet => (
               <tr key={pet._id}>
                 <td>{pet.name}</td>
                 <td>{pet.type}</td>
                 <td>{pet.breed}</td>
-                <td>
-                  {
-                    pet.request.length ? 'Requested' : '-'
-                  }
-                </td>
                 <td>
                   {
                     pet.status ? 'Adopted' : 'Not Adopted'
@@ -69,11 +65,21 @@ export default function OwnerPage (props) {
                 </td>
                 <td>
                   {
-                    pet.request.length ?
+                    pet.request.length ? pet.request.map(((person,index) => (
+                      <div className="pt-2" key={index}>
+                        <small>Requested by {person.email}</small>
+                      </div>
+                    ))) : '-'
+                  }
+                </td>
+                <td>
+                  {
+                    pet.request.length ? pet.request.map(((person, index) => (
                     <div>
-                      <button className="btn btn-outline-primary mr-2 radisBtn" onClick={() => handleAdoptPet({ pet, status: true })}><span className="fas fa-user-check"></span> Approve</button>
-                      <button className="btn btn-outline-danger radisBtn" onClick={() => handleAdoptPet({ pet, status: false })}><span className="fas fa-ban"></span> Cancel</button>
+                      <button className="btn btn-primary btn-sm mr-2 mb-2" onClick={() => handleAdoptPet({ pet, status: true, person })}>Approve</button>
+                      <button className="btn btn-danger btn-sm mb-2" onClick={() => handleAdoptPet({ pet, status: false, person })}>Cancel</button>
                     </div>
+                    )))
                     :
                     <div>
                       <button className="btn btn-outline-primary mr-2 radisBtn"><span className="far fa-edit"></span> Edit</button>

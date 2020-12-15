@@ -131,7 +131,7 @@ export default function AddPetPage(props) {
             id="pictures" 
             multiple 
             className="form-control"
-            placeholder="if more than 1 pictures use a coma (ex: pic1, pic2)"
+            placeholder="if more than 1 pictures use a comma (ex: pic1, pic2)"
             value={form_input.pictures}
             onChange={(e) => handleChange(e)}
           />

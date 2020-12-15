@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { filteredByType } from '../store/actions';
-import '../style/css/filter.css'
+import '../style/css/filter.css';
+import { fetchAllPets } from '../store/actions';
 
 export default function FilterDropdowns() {
+  const dispatch = useDispatch()
   const[dataFilter, setDataFilter] = useState({
     type: '',
-    breed: '',
     color: '',
     gender: '',
     age: ''
@@ -27,9 +27,15 @@ export default function FilterDropdowns() {
     })
   }
 
+  const handleFilterForm = (e) => {
+    e.preventDefault()
+
+    dispatch(fetchAllPets(dataFilter))
+  }
+
   return(
     <>
-    <form className="border shadow-lg p-2" style={{ borderRadius: '10px' }}>
+    <form onSubmit={(e) => handleFilterForm(e)} className="border shadow-lg p-2" style={{ borderRadius: '10px' }}>
         <div className="text-center colorText text-dark">
           <h3>Fillter Pets</h3>
         </div>
@@ -44,19 +50,7 @@ export default function FilterDropdowns() {
               </select>
             </div>
           </div>
-          <div className="group-filter mb-4">
-            <label className="label-filter ml-3 colorText">BREED</label>
-            <div className="mt-1">
-              <select onChange={(e) => handleChangeFilter(e)} name="breed"  className="btnFilter form-control">
-                <option value={''}>Click Me</option>
-                <option value={'American Bully'}>American Bully</option>
-                <option value={'American Eskimo'}>American Eskimo</option>
-                <option value={'Afghan Hound'}>Afghan Hound</option>
-                <option value={'Alaskan Malamute'}>Alaskan Malamute</option>
-                <option value={'Siberian Husky'}>Siberian Husky</option>
-              </select>
-            </div>
-          </div>
+                    
           <div className="group-filter mb-4">
             <label className="label-filter ml-3 colorText">COLOR</label>
             <div className="mt-1">

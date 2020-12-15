@@ -17,7 +17,7 @@ export default function Cards({ petList }) {
       <div key={pet._id} className="col-4 my-4" onClick={() => history.push(`/pet/${pet._id}`)}>
         <div className="card text-center shadow" style={{width: '16rem'}}>
           <div className="image-container">
-            <img src={pet.pictures} width="500px" height="200px" className="card-img-top" alt="pics" />
+            <img src={pet.pictures[0]} width="500px" height="200px" className="card-img-top" alt="pics" />
               <div className="top-right">
                 <p className="m-0" ><i onClick={() => handleFavorite(pet._id)} className="icon-hearted shadow-lg fa fa-heart-o" style={{fontSize: '20px', fontWeight: '600', color: '#ce0d81'}}></i></p>
               </div>
