@@ -34,6 +34,18 @@ export default function FilterDropdowns() {
     dispatch(fetchAllPets())
   }
 
+  const handleFilterForm = (e) => {
+    e.preventDefault()
+
+    dispatch(fetchAllPets(dataFilter))
+  }
+
+  const resetForm = (e) => {
+    e.preventDefault()
+
+    dispatch(fetchAllPets())
+  }
+
   return(
     <>
     <form onReset={(e) => resetForm(e)} onSubmit={(e) => handleFilterForm(e)} className="border shadow-lg p-2" style={{ borderRadius: '10px' }}>

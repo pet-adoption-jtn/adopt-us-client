@@ -7,6 +7,7 @@ export default function AboutDog() {
         <h1 className="">About Dog</h1>
         <div className="row">
           <div className="border px-5 py-3 my-3 shadow-lg" style={{ borderRadius: '10px '}}>
+
             <h3>10 Facts That You Must Know About Dog</h3>
             <ol>
               <li>
