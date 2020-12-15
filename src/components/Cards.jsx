@@ -26,7 +26,7 @@ export default function Cards({ petList }) {
             <h5 className="card-title">{(pet.name.toUpperCase())}</h5>
               <div style={{fontSize: '14px', display: 'flex', justifyContent: 'space-evenly'}}>
                 <p>{pet.age}</p>
-                <p><span className="badge" style={{backgroundColor: '#ce0d81'}}>{pet.breed}</span></p>
+                <p><span className="badge" style={{backgroundColor: '#ce0d81', color: '#fff'}}>{pet.breed}</span></p>
               </div>
           </div>
         </div>

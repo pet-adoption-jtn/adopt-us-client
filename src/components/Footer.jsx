@@ -1,9 +1,7 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 import '../style/css/fotter.css'
 
 function FooterComponent(props) {
-  const history = useHistory()
 
   return (
     <div className="boxFooter text-center p-3 d-flex justify-content-between">

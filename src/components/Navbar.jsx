@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import { fetchAllPets } from '../store/actions';
 
 export default function Navbar() {
   const history = useHistory()
-  const { access_token } = useSelector(state => state)
-  const dispatch = useDispatch()
+  const { access_token, account } = useSelector(state => state)
 
+  const dispatch = useDispatch()
   const goToMyPets = () => {
     history.push('/myPets')
   }
@@ -21,26 +22,32 @@ export default function Navbar() {
     history.push('/')
   }
 
+  const backToHome = () => {
+    dispatch(fetchAllPets())
+  }
+
   return (
     <>
       <nav className="navbar navbar-expand-lg" style={{paddingLeft: '100px', paddingRight: '100px'}}>
         <div className="container-fluid">
           <p className="navbar-brand">
             <Link to='/'>
-              <img src="./adoptUs.png" alt="logo" width="80" height="80" />
+              <img onClick={() => backToHome()} src="./adoptUs.png" alt="logo" width="80" height="80" />
             </Link>
           </p>
           <div className="">
-            <ul className="navbar-nav mb-2-lg-0">
+            <ul className="navbar-nav">
               <li className="nav-item">
-                  <Link to="/favorites" className="content nav-link" style={{fontSize: '20px'}}><i className="fa fa-heart-o"></i></Link>
+                  <Link to="/favorites" className="content nav-link">
+                    <i className='fas fa-heart' style={{marginRight: '10px'}}></i>
+                  </Link>
               </li>
               {
                 access_token
                 ? 
                 <li className="nav-item dropdown">
                   <a className="content nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Account
+                    <a>{account.username}<i className='fas fa-user-alt' style={{paddingLeft: '5px', paddingRight: '5px'}}></i></a>
                   </a>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a onClick={() => goToMyPets()} className="dropdown-item">MyPets</a></li>

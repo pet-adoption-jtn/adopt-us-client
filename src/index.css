@@ -28,19 +28,21 @@ body {
 
 .content:hover {
   cursor: pointer;
-  border-bottom-style: solid;
-}
-
-.btn-1 {
-  background-color: #fff;
   color: #ab0b6b;
+  border-bottom: solid;
   border-color: #ab0b6b;
 }
 
-.btn-1:hover {
-  background-color: #ab0b6b;
+.btn2 {
+  background-color: #fff;
+  color: #1A76FB;
+  border-color: #1A76FB;
+}
+
+.btn2:hover {
+  background-color: #1A76FB;
   color: #fff;
-  border-color: #ab0b6b;
+  border-color: #1A76FB;
 }
 
 .side:hover {
@@ -49,7 +51,7 @@ body {
 
 .content {
   font-size: 20px;
-  color: #f0199a;
+  color: #ab0b6b;
   font-weight: 500;
 }
 

@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { filteredByType } from '../store/actions';
 
 export default function FilterDropdowns() {
+  const dispatch = useDispatch()
+  const [ filterOptions, setFilterOptions ] = useState({
+    type: '-',
+    age: '-',
+    gender: '-',
+    color: '-'
+  })
+  const filterByType = (type, age, gender, color) => {
+    dispatch(filteredByType(type, age, gender, color))
+  }
+
   return(
     <>
       <div className="filter">
@@ -12,29 +25,13 @@ export default function FilterDropdowns() {
                 Any
               </button>
               <ul className="dropdown-menu">
-                <li><p className="dropdown-item" >Dog</p></li>
-                <li><p className="dropdown-item" >Cat</p></li>
+                <li><p onClick={() => filterByType('dog')} className="dropdown-item">Dog</p></li>
+                <li><p onClick={() => filterByType('cat')} className="dropdown-item">Cat</p></li>
               </ul>
             </div>
           </div>
         </div>
-        <div className="group-filter mb-3">
-          <label className="label-filter">BREED</label>
-          <div className="mt-1">
-            <div className="btn-group">
-              <button className="btn btn-light border shadow btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{width: '200px'}}>
-                Any
-              </button>
-              <ul className="dropdown-menu">
-                <li><p className="dropdown-item">American Bully</p></li>
-                <li><p className="dropdown-item">American Eskimo</p></li>
-                <li><p className="dropdown-item">Afghan Hound</p></li>
-                <li><p className="dropdown-item">Alaskan Malamute</p></li>
-                <li><p className="dropdown-item">Siberian Husky</p></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        
         <div className="group-filter mb-3">
           <label className="label-filter">COLOR</label>
           <div className="mt-1">
@@ -67,7 +64,7 @@ export default function FilterDropdowns() {
           </div>
         </div>
         <div className="group-filter mb-3">
-          <label className="label-filter">SIZE</label>
+          <label className="label-filter">AGE</label>
           <div className="mt-1">
             <div className="btn-group">
               <button className="btn btn-light border shadow btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{width: '200px'}}>
