@@ -29,8 +29,8 @@ export default function FilterDropdowns() {
 
   return(
     <>
-    <form className="border p-2" style={{ borderRadius: '10px' }}>
-        <div className="text-center colorText">
+    <form className="border shadow-lg p-2" style={{ borderRadius: '10px' }}>
+        <div className="text-center colorText text-dark">
           <h3>Fillter Pets</h3>
         </div>
         <div className="filter mt-3">
@@ -38,7 +38,7 @@ export default function FilterDropdowns() {
             <label className="label-filter ml-3 colorText">TYPE</label>
             <div className="mt-1">
               <select onChange={(e) => handleChangeFilter(e)} name="type" className="btnFilter form-control">
-                <option selected disabled value={'Click Me'}>Click Me</option>
+                <option value={''}>Click Me</option>
                 <option value={'Dog'}>Dog</option>
                 <option value={'Cat'}>Cat</option>
               </select>
@@ -48,7 +48,7 @@ export default function FilterDropdowns() {
             <label className="label-filter ml-3 colorText">BREED</label>
             <div className="mt-1">
               <select onChange={(e) => handleChangeFilter(e)} name="breed"  className="btnFilter form-control">
-                <option selected disabled value={'Click Me'}>Click Me</option>
+                <option value={''}>Click Me</option>
                 <option value={'American Bully'}>American Bully</option>
                 <option value={'American Eskimo'}>American Eskimo</option>
                 <option value={'Afghan Hound'}>Afghan Hound</option>
@@ -61,7 +61,7 @@ export default function FilterDropdowns() {
             <label className="label-filter ml-3 colorText">COLOR</label>
             <div className="mt-1">
               <select onChange={(e) => handleChangeFilter(e)} name="color" className="btnFilter form-control">
-                <option selected disabled value={'Click Me'}>Click Me</option>
+                <option value={''}>Click Me</option>
                 <option value={'Black'}>Black</option>
                 <option value={'White'}>White</option>
                 <option value={'Brown'}>Brown</option>
@@ -74,7 +74,7 @@ export default function FilterDropdowns() {
             <label className="label-filter ml-3 colorText">GENDER</label>
             <div className="mt-1">
               <select onChange={(e) => handleChangeFilter(e)} name="gender" className="btnFilter form-control">
-                <option selected disabled value={'Click Me'}>Click Me</option>
+                <option value={''}>Click Me</option>
                 <option value={'Male'}>Male</option>
                 <option value={'Female'}>Female</option>
               </select>
@@ -84,7 +84,7 @@ export default function FilterDropdowns() {
             <label className="label-filter ml-3 colorText">AGE</label>
             <div className="mt-1">
               <select onChange={(e) => handleChangeFilter(e)} name="age" className="btnFilter form-control">
-                <option selected disabled value={'Click Me'}>Click Me</option>
+                <option value={''}>Click Me</option>
                 <option value={'Baby'}>Baby</option>
                 <option value={'Young'}>Young</option>
                 <option value={'Adult'}>Adult</option>
@@ -93,7 +93,10 @@ export default function FilterDropdowns() {
             </div>
           </div>
         </div>
-        <button type="submit" className="btn btnSubmitFilter text-light my-3 form-control">Submit</button>
+        <div className="d-flex">
+          <button type="submit" className="btn btnSubmitFilter mr-2 my-3 form-control"><span className="fas fa-paw"></span> Submit</button>
+          <button style={{ borderRadius: '20px' }} type="reset" className="btn btnReset my-3 form-control"><span className="fas fa-undo"></span> Reset</button>
+        </div>
     </form>
     </>
   )

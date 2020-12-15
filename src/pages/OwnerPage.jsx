@@ -38,7 +38,7 @@ export default function OwnerPage (props) {
     <>
     <div className="container my-5">
       <h1 className="mb-3 titleFavorites">Your Pets</h1>
-      <button className="btn btn-success mb-3" onClick={() => history.push('/addPet')}><span className="fas fa-paw"></span>  Add a new Pet</button>
+      <button className="btn btn-outline-success mb-3 radisBtn" onClick={() => history.push('/addPet')}><span className="fas fa-paw"></span>  Add a new Pet</button>
       <table className="table text-center">
         <thead>
           <tr>
@@ -59,7 +59,7 @@ export default function OwnerPage (props) {
                 <td>{pet.breed}</td>
                 <td>
                   {
-                    pet.request ? 'Requested' : '-'
+                    pet.request.length ? 'Requested' : '-'
                   }
                 </td>
                 <td>
@@ -69,15 +69,15 @@ export default function OwnerPage (props) {
                 </td>
                 <td>
                   {
-                    pet.request ?
+                    pet.request.length ?
                     <div>
-                      <button className="btn btn-primary mr-2" onClick={() => handleAdoptPet({ pet, status: true })}>Approve</button>
-                      <button className="btn btn-danger" onClick={() => handleAdoptPet({ pet, status: false })}>Cancel</button>
+                      <button className="btn btn-outline-primary mr-2 radisBtn" onClick={() => handleAdoptPet({ pet, status: true })}><span className="fas fa-user-check"></span> Approve</button>
+                      <button className="btn btn-outline-danger radisBtn" onClick={() => handleAdoptPet({ pet, status: false })}><span className="fas fa-ban"></span> Cancel</button>
                     </div>
                     :
                     <div>
-                      <button className="btn btn-primary mr-2">Edit</button>
-                      <button className="btn btn-danger" onClick={() => handleDeletePet(pet._id)}>Delete</button>
+                      <button className="btn btn-outline-primary mr-2 radisBtn"><span className="far fa-edit"></span> Edit</button>
+                      <button className="btn btn-outline-danger radisBtn" onClick={() => handleDeletePet(pet._id)}><span className="fas fa-trash-alt"></span> Delete</button>
                     </div>
                   }
                 </td>

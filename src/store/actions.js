@@ -1,6 +1,14 @@
 import axios from '../config/axios'
 import { Toast } from '../config/swal'
 
+export function googleSignIn(googleToken) {
+  return axios({
+    method: 'POST',
+    url: '/googlesignin',
+    data: { googleToken }
+  })
+}
+
 export function userSignUp(dataSignUp) {
   return async (dispatch) => {
     try {
