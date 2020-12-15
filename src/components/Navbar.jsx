@@ -30,7 +30,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="modal fade" id="Sing-in-Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div className="modal fade" id="Sing-in-Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div className="modal-dialog-centered modal-fullscreen">
             <div style={{ backgroundColor: 'rgb(0, 0, 0, 0.5)' }} className="modal-content">
               <SignInPage/>
@@ -38,7 +38,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div className="modal fade" id="Sing-up-Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div className="modal fade" id="Sing-up-Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div className="modal-dialog-centered modal-fullscreen">
             <div style={{ backgroundColor: 'rgb(0, 0, 0, 0.5)' }} className="modal-content">
               <SignUpPage/>
@@ -46,11 +46,11 @@ export default function Navbar() {
         </div>
       </div>
 
-      <nav className="navbar navbar-expand-lg boxFooter mb-5" style={{paddingLeft: '100px', paddingRight: '100px'}}>
+      <nav className="navbar navbar-expand-lg shadow-lg" style={{paddingLeft: '100px', paddingRight: '100px'}}>
         <div className="container-fluid">
           <p className="navbar-brand m-0">
             <Link to="/">
-              <img src={"./adoptUs.png"} alt="logo" width="60" height="60" />
+              <img onClick={() => backToHome()} src="./adoptUs.png" alt="logo" width="60" height="60" />
             </Link>
           </p>
           <div>
