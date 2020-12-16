@@ -27,7 +27,7 @@ export default function Landing() {
 
   return(
     <>
-      <div className="container">
+      <div className="container w3-animate-opacity">
         <div className="row my-5">
           <div className="col-3">
             <FilterDropdowns />

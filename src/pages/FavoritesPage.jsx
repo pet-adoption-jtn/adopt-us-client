@@ -19,7 +19,7 @@ function FavoritesPage(props) {
 
   return (
     <div className="favPage">
-      <div className="container">
+      <div className="container w3-animate-opacity">
         <div className="">
           <div className="mt-5">
             <h1 className="titleFavorites">Your Favorites Pets</h1>

@@ -29,7 +29,7 @@ export default function Profile () {
 
 
   return(
-    <div className="container my-5">
+    <div className="container my-5 w3-animate-opacity">
       <div className="px-5">
         <div className="px-5">
           <h1>Profile</h1>

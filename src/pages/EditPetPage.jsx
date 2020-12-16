@@ -43,7 +43,7 @@ function EditPetPage(props) {
   }
 
   return (
-    <div className="container my-5">
+    <div className="container my-5 w3-animate-opacity">
       <form className="form p-5 border shadow-lg" style={{ borderRadius: '10px' }}  onSubmit={(e) => handleSubmit(e)}>
         <div className="d-flex justify-content-between">
           <h2 className="mt-4">Edit Your Pet Data</h2>
