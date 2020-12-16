@@ -46,8 +46,8 @@ export default function AddPetPage(props) {
 
   return (
     <>
-    <div className="container my-5">
-      <form className="form p-5 border shadow-lg" style={{ borderRadius: '10px' }} onSubmit={e => handleSubmit(e)}>
+    <div className="container my-5 d-flex justify-content-center">
+      <form className="form p-5 border shadow-lg" style={{ borderRadius: '10px', width: '60%', backgroundColor:'#fff' }} onSubmit={e => handleSubmit(e)}>
         <div className="d-flex justify-content-between">
           <h2 className="mt-4">Add Your Pet</h2>
           <img src={'./adoptUs.png'} alt={'Adopt.Us'}></img>

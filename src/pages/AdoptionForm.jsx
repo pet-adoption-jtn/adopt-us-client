@@ -63,9 +63,9 @@ function FormAdoptionPage(props) {
   return (
   <div>
     <div className="container my-5">
-      <div className="row justify-content-center">
-        <div className=" padingRegis col-12">
-          <div className="w3-card-4 p-3 bg-light" style={{ borderRadius: '10px' }}>
+      <div className="row">
+        <div className=" padingRegis d-flex justify-content-center">
+          <div className="w3-card-4 p-3 bg-light" style={{ borderRadius: '10px', width: '70%' }}>
             <form className="p-4" onSubmit={handleSubmitForm}>
               <div className="p-4 d-flex justify-content-between">
                 <h1 className="titleLogin text-start my-5">Form Adoption</h1>
