@@ -137,3 +137,14 @@ body {
   padding-right: 20px;
   padding-left: 20px;
 }
+
+.label-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ab0b6b;
+}
+
+.btn-8 {
+  color: #0077F6;
+  background-color: #fff;
+}
