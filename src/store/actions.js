@@ -46,17 +46,14 @@ export function updateProfile (payload) {
     })
       .then(({ data }) => {
         dispatch({
-          type: 'SET_ACCESS_TOKEN',
-          payload: data.access_token
-        })
-        dispatch({
           type: 'SET_ACCOUNT',
           payload: data.account
         })
-      })
-      Toast.fire({
-        icon: 'success',
-        title: 'Your profile has been updated!'
+        localStorage.setItem('account', JSON.stringify(data.account))
+        Toast.fire({
+          icon: 'success',
+          title: 'Your profile has been updated!'
+        })
       })
       .catch(err => {
         Swal.fire({
