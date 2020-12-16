@@ -148,3 +148,7 @@ body {
   color: #0077F6;
   background-color: #fff;
 }
+
+.ex:hover{
+  cursor: pointer;
+}

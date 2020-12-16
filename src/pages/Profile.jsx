@@ -36,13 +36,13 @@ export default function Profile () {
         </div>
         <div>
           <form onSubmit={(e) => handleSubmitProfile(e)}>
-            <label className="col-form-label px-3">Name</label>
+            <label className="col-form-label px-3">Username</label>
             <input onChange={(e) => handleChangePprofile(e)} style={{ borderRadius: '20px' }} name="username" value={ dataProfile.username } className="input form-control mb-2"></input>
 
             <label className="col-form-label px-3">E-mail</label>
-            <input onChange={(e) => handleChangePprofile(e)} style={{ borderRadius: '20px' }} name="email" value={ dataProfile.email } className="input form-control mb-2"></input>
+            <input disabled onChange={(e) => handleChangePprofile(e)} style={{ borderRadius: '20px' }} name="email" value={ dataProfile.email } className="input form-control mb-2"></input>
             
-            <label className="col-form-label px-3">No Phone</label>
+            <label className="col-form-label px-3">Phone Number</label>
             <input onChange={(e) => handleChangePprofile(e)} style={{ borderRadius: '20px' }} name="phone" value={ dataProfile.phone } className="input form-control mb-2"></input>
             
             <label className="col-form-label px-3">Address</label>

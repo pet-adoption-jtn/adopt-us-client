@@ -30,7 +30,7 @@ function FavoritesPage(props) {
                 <div key={fav._id} className="col-4 pt-2">
                   <div className="posisiImgFav">
                     <img className="imgCard w3-card-4" src={fav.Pet.pictures[0]} alt={fav.Pet.name}/>
-                    <p className="m-0" ><i onClick={() => handleUnFavorites(fav._id)} className="imgLoveFav icon-hearted shadow-lg fa fa-heart-o" style={{fontSize: '20px', fontWeight: '600', color: '#ce0d81'}}></i></p>
+                    <p className="m-0" ><i onClick={() => handleUnFavorites(fav._id)} className="imgLoveFav shadow-lg fas fa-times-circle ex" style={{fontSize: '32px', fontWeight: '600', color: '#ce0d81'}}></i></p>
                   </div>
                   <div className="w3-card-4 infoCardFav">
                     <h1><strong>{fav.Pet.name}</strong></h1> 

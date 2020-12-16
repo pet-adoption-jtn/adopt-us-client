@@ -63,6 +63,7 @@ export default function OwnerPage (props) {
       <table className="table text-center">
         <thead>
           <tr>
+            <th>#</th>
             <th>Name</th>
             <th>Type</th>
             <th>Breed</th>
@@ -73,8 +74,9 @@ export default function OwnerPage (props) {
         </thead>
         <tbody>
           {
-            owners_pets.map(pet => (
+            owners_pets.map((pet, index) => (
               <tr key={pet._id}>
+                <td className="align-middle">{index + 1}</td>
                 <td className="align-middle">{pet.name}</td>
                 <td className="align-middle">{pet.type}</td>
                 <td className="align-middle">{pet.breed}</td>
@@ -95,7 +97,7 @@ export default function OwnerPage (props) {
                 <td className="align-middle">
                   {
                     pet.request.length ? pet.request.map(((person, index) => (
-                    <div>
+                    <div key={index}>
                       <button className="btn btn-outline-primary mr-2 mb-2 radisBtn" onClick={() => handleAdoptPet({ pet, status: true, person })}><span className="fas fa-user-check"></span> Approve</button>
                       <button className="btn btn-outline-danger mb-2 radisBtn" onClick={() => handleAdoptPet({ pet, status: false, person })}><span className="fas fa-ban"></span> Cancel</button>
                     </div>
