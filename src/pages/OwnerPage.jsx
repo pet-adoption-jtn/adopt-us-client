@@ -102,7 +102,7 @@ export default function OwnerPage (props) {
                     )))
                     :
                     <div>
-                      <button onClick={() => history.push('/editpet')} className="btn btn-outline-primary mr-2 radisBtn"><span className="far fa-edit"></span> Edit</button>
+                      <button onClick={() => history.push(`/editpet/${pet._id}`)} className="btn btn-outline-primary mr-2 radisBtn"><span className="far fa-edit"></span> Edit</button>
                       <button className="btn btn-outline-danger radisBtn" onClick={() => handleDeletePet(pet._id)}><span className="fas fa-trash-alt"></span> Delete</button>
                     </div>
                   }
