@@ -4,14 +4,14 @@ import { Swal, Toast } from '../config/swal'
 export function editPet(payload) {
   return (dispatch) => {
     const access_token = localStorage.getItem('access_token')
-    const { pet_id, data } = payload
+    const { pet_id, pet_data } = payload
     axios({
-      method: 'POST',
+      method: 'PUT',
       url: `/pets/${pet_id}`,
       headers: {
         access_token
       },
-      data
+      data: pet_data
     })
       .then(({ data }) => {
         dispatch({

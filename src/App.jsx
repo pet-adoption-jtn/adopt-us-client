@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import { 
   DetailPage, 
   OwnerPage, 
@@ -11,17 +11,17 @@ import {
   SignUpPage,
   AboutCat,
   AboutDog,
-  Profile
+  Profile,
+  EditPetPage
 } from './pages'
 import { 
   NavBar,
   Footer
 } from './components';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 function App() {
   const dispatch = useDispatch()
-  const { access_token } = useSelector(state => state)
   useEffect(() => {
     const access_token = localStorage.getItem('access_token')
     const account = localStorage.getItem('account')
@@ -42,23 +42,12 @@ function App() {
         <Route path="/addPet" component={ AddPetPage } />
         <Route path="/signup" component={ SignUpPage } />
         <Route path="/signin" component={ SignInPage } />
-        <Route path="/about/dog" component={AboutDog} />
-        <Route path="/about/cat" component={AboutCat} />
-        <Route path="/adopt/:id">
-          {
-            access_token ? <FormAdoptionPage/> : <Redirect to="/signin" /> 
-          }
-        </Route>
-        <Route path="/favorites">
-          {
-            access_token ? <FavoritePage/>: <Redirect to="/signin"/>
-          }
-        </Route>
-        <Route path="/profile">
-          {
-            access_token ?  <Profile/> : <Redirect to="/signin"/> 
-          }
-        </Route>
+        <Route path="/about/dog" component={ AboutDog } />
+        <Route path="/about/cat" component={ AboutCat } />
+        <Route path="/editpet/:id" component={ EditPetPage }/>
+        <Route path="/adopt/:id" component={ FormAdoptionPage } />
+        <Route path="/favorites" component={ FavoritePage } />
+        <Route path="/profile" component={Profile} />
       </Switch> 
       <Footer/>
     </>
