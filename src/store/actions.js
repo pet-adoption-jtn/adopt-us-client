@@ -231,6 +231,10 @@ export function addNewPet(newPet) {
       url: '/pets'
     })
       .then(({ data }) => {
+        Toast.fire({
+          icon: 'success',
+          title: 'Add pet successful'
+        })
         dispatch({
           type: 'ADD_OWNERS_PETS',
           payload: data

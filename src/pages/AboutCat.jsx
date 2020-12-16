@@ -56,7 +56,7 @@ export default function AboutCat() {
                 <p>Beyond grooming all the time, according to one estimate, a cat spends nearly two-thirds of its life asleep.</p>
               </li>
             </ol>
-            <small>source: <a href="https://www.thedrakecenter.com/services/dogs/blog/23-amazing-facts-about-dogs-you-probably-didnt-know">23 Amazing Facts About Dog</a></small>
+            <small>source: <a href="https://www.mentalfloss.com/article/578211/cat-facts">Facts About Cat</a></small>
           <div className="col-12">
               <button style={{ borderRadius: '20px' }} onClick={() => goToLandingPage()} className="btn btn-8 btn-primary btn-lg my-3"><span className="fas fa-cat pr-3"></span>Adopt Us</button>
           </div>
