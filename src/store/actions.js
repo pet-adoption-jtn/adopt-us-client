@@ -1,6 +1,38 @@
 import axios from '../config/axios'
 import { Swal, Toast } from '../config/swal'
 
+export function editPet(payload) {
+  return (dispatch) => {
+    const access_token = localStorage.getItem('access_token')
+    const { pet_id, data } = payload
+    axios({
+      method: 'POST',
+      url: `/pets/${pet_id}`,
+      headers: {
+        access_token
+      },
+      data
+    })
+      .then(({ data }) => {
+        dispatch({
+          type: 'EDIT_OWNER_PET',
+          payload: data
+        })
+        Toast.fire({
+          icon: 'success',
+          title: `${data.name} has ben updated`
+        })
+      })
+      .catch(err => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops..',
+          text: err.response.data.message || 'Something Went Wrong'
+        })
+      })
+  }
+}
+
 export function updateProfile (payload) {
   return (dispatch) => {
     const access_token = localStorage.getItem('access_token')

@@ -46,10 +46,10 @@ export default function FilterDropdowns() {
           <div className="group-filter mb-4">
             <label className="label-filter ml-3 colorText">TYPE</label>
             <div className="mt-1">
-              <select onChange={(e) => handleChangeFilter(e)} name="type" className="btnFilter form-control">
-                <option selected={!dataFilter.type} value={''}>Any</option>
-                <option selected={dataFilter.type === 'dog'} value={'dog'}>Dog</option>
-                <option selected={dataFilter.type === 'cat'} value={'cat'}>Cat</option>
+              <select value={ dataFilter.type } onChange={(e) => handleChangeFilter(e)} name="type" className="btnFilter form-control">
+                <option value={''}>Any</option>
+                <option value={'dog'}>Dog</option>
+                <option value={'cat'}>Cat</option>
               </select>
             </div>
           </div>
@@ -57,35 +57,35 @@ export default function FilterDropdowns() {
           <div className="group-filter mb-4">
             <label className="label-filter ml-3 colorText">COLOR</label>
             <div className="mt-1">
-              <select onChange={(e) => handleChangeFilter(e)} name="color" className="btnFilter form-control">
-                <option selected={!dataFilter.color} value={''}>Any</option>
-                <option selected={dataFilter.color === 'black'} value={'black'}>Black</option>
-                <option selected={dataFilter.color === 'white'} value={'white'}>White</option>
-                <option selected={dataFilter.color === 'brwon'} value={'brown'}>Brown</option>
-                <option selected={dataFilter.color === 'gold'} value={'gold'}>Gold</option>
-                <option selected={dataFilter.color === 'grey'} value={'grey'}>Grey</option>
+              <select value={ dataFilter.color } onChange={(e) => handleChangeFilter(e)} name="color" className="btnFilter form-control">
+                <option value={''}>Any</option>
+                <option value={'black'}>Black</option>
+                <option value={'white'}>White</option>
+                <option value={'brown'}>Brown</option>
+                <option value={'gold'}>Gold</option>
+                <option value={'grey'}>Grey</option>
               </select>
             </div>
           </div>
           <div className="group-filter mb-4">
             <label className="label-filter ml-3 colorText">GENDER</label>
             <div className="mt-1">
-              <select onChange={(e) => handleChangeFilter(e)} name="gender" className="btnFilter form-control">
-                <option selected={!dataFilter.gender} value={''}>Any</option>
-                <option selected={dataFilter.gender === 'male'} value={'male'}>Male</option>
-                <option selected={dataFilter.gender === 'female'} value={'female'}>Female</option>
+              <select value={ dataFilter.gender } onChange={(e) => handleChangeFilter(e)} name="gender" className="btnFilter form-control">
+                <option value={''}>Any</option>
+                <option value={'male'}>Male</option>
+                <option value={'female'}>Female</option>
               </select>
             </div>
           </div>
           <div className="group-filter mb-4">
             <label className="label-filter ml-3 colorText">AGE</label>
             <div className="mt-1">
-              <select onChange={(e) => handleChangeFilter(e)} name="age" className="btnFilter form-control">
-                <option selected={!dataFilter.age} value={''}>Any</option>
-                <option selected={dataFilter.age === 'baby'} value={'baby'}>Baby</option>
-                <option selected={dataFilter.age === 'young'} value={'young'}>Young</option>
-                <option selected={dataFilter.age === 'adult'} value={'adult'}>Adult</option>
-                <option selected={dataFilter.age === 'senior'} value={'senior'}>Senior</option>
+              <select value={ dataFilter.age } onChange={(e) => handleChangeFilter(e)} name="age" className="btnFilter form-control">
+                <option value={''}>Any</option>
+                <option value={'baby'}>Baby</option>
+                <option value={'young'}>Young</option>
+                <option value={'adult'}>Adult</option>
+                <option value={'senior'}>Senior</option>
               </select>
             </div>
           </div>
