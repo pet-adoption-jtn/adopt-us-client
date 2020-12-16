@@ -36,7 +36,7 @@ export default function Navbar() {
   if(!access_token) {
     return (
       <>
-    <nav className="navbar navbar-expand-lg" style={{paddingLeft: '100px', paddingRight: '100px'}}>
+    <nav className="navbar navbar-expand-lg shadow" style={{paddingLeft: '100px', paddingRight: '100px'}}>
       <div className="container-fluid">
         <p className="navbar-brand m-0">
           <Link to="/">
@@ -85,7 +85,7 @@ export default function Navbar() {
   } else {
     return (
       <>
-        <nav className="navbar navbar-expand-lg shadow-lg" style={{paddingLeft: '100px', paddingRight: '100px'}}>
+        <nav className="navbar navbar-expand-lg shadow" style={{paddingLeft: '100px', paddingRight: '100px'}}>
           <div className="container-fluid">
             <p className="navbar-brand m-0">
               <Link to="/">

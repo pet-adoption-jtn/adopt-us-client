@@ -2,12 +2,13 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { fetchFavorites, removeFavorites } from '../store/actions'
+import { Loading } from '../components'
 import '../style/css/favorites-page.css'
 
 function FavoritesPage(props) {
   const history = useHistory()
   const dispatch = useDispatch()
-  const favorites = useSelector(state => state.favorites)
+  const { favorites, loading } = useSelector(state => state)
 
   useEffect(() => {
     dispatch(fetchFavorites())
@@ -16,6 +17,8 @@ function FavoritesPage(props) {
   function handleUnFavorites(id) {
     dispatch(removeFavorites(id))
   }
+
+  if (loading) return <Loading />
 
   return (
     <div className="favPage">

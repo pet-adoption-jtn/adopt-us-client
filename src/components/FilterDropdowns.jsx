@@ -46,7 +46,7 @@ export default function FilterDropdowns() {
           <div className="group-filter mb-4">
             <label className="label-filter ml-3 colorText">TYPE</label>
             <div className="mt-1">
-              <select value={ dataFilter.type } onChange={(e) => handleChangeFilter(e)} name="type" className="btnFilter form-control">
+              <select value={ dataFilter.type } onChange={(e) => handleChangeFilter(e)} name="type" className="btnFilter form-select">
                 <option value={''}>Any</option>
                 <option value={'dog'}>Dog</option>
                 <option value={'cat'}>Cat</option>
@@ -57,7 +57,7 @@ export default function FilterDropdowns() {
           <div className="group-filter mb-4">
             <label className="label-filter ml-3 colorText">COLOR</label>
             <div className="mt-1">
-              <select value={ dataFilter.color } onChange={(e) => handleChangeFilter(e)} name="color" className="btnFilter form-control">
+              <select value={ dataFilter.color } onChange={(e) => handleChangeFilter(e)} name="color" className="btnFilter form-select">
                 <option value={''}>Any</option>
                 <option value={'black'}>Black</option>
                 <option value={'white'}>White</option>
@@ -70,7 +70,7 @@ export default function FilterDropdowns() {
           <div className="group-filter mb-4">
             <label className="label-filter ml-3 colorText">GENDER</label>
             <div className="mt-1">
-              <select value={ dataFilter.gender } onChange={(e) => handleChangeFilter(e)} name="gender" className="btnFilter form-control">
+              <select value={ dataFilter.gender } onChange={(e) => handleChangeFilter(e)} name="gender" className="btnFilter form-select">
                 <option value={''}>Any</option>
                 <option value={'male'}>Male</option>
                 <option value={'female'}>Female</option>
@@ -80,7 +80,7 @@ export default function FilterDropdowns() {
           <div className="group-filter mb-4">
             <label className="label-filter ml-3 colorText">AGE</label>
             <div className="mt-1">
-              <select value={ dataFilter.age } onChange={(e) => handleChangeFilter(e)} name="age" className="btnFilter form-control">
+              <select value={ dataFilter.age } onChange={(e) => handleChangeFilter(e)} name="age" className="btnFilter form-select">
                 <option value={''}>Any</option>
                 <option value={'baby'}>Baby</option>
                 <option value={'young'}>Young</option>
