@@ -47,7 +47,7 @@ export default function DetailPage (props) {
 
   return (
     <>
-    <div className="container my-5">
+    <div className="container my-5 w3-animate-opacity">
       <div id="MyCarousel" className="carousel slide w3-card-4" data-ride="carousel">
         <div className="carousel-inner">
           {

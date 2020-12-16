@@ -9,7 +9,7 @@ export default function AboutDog() {
   }
   return (
     <>
-      <div className="container py-5 pb-3">
+      <div className="container py-5 pb-3 w3-animate-opacity">
         <div className="row">
           <div className="col-8 shadow" style={{backgroundColor: '#fff', borderRadius: '15px'}}>
             <h3 className="pt-3 pb-3" style={{color: 'gray'}}>10 Facts That You Must Know About Dog</h3>

@@ -48,7 +48,7 @@ function RegisterPage(props) {
 
   return (
     <div className="bgLogin">
-      <div className="container">
+      <div className="container w3-animate-opacity">
         <div className="row justify-content-center">
           <div className="padingRegis col-5 text-center">
             <div className="w3-card-4 p-3 bg-light" style={{ borderRadius: '10px' }}>
