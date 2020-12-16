@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Rubik', sans-serif;
+  background-color: rgb(239,238,241);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  padding: 0;
+  min-height: 100%;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.navbar {
+  background-color: #fff;
+}
+
+.image-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.content:hover {
+  cursor: pointer;
+  color: #ab0b6b;
+  border-bottom: solid;
+  border-color: #ab0b6b;
+}
+
+.btn2 {
+  background-color: #fff;
+  color: #1A76FB;
+  border-color: #1A76FB;
+}
+
+.btn2:hover {
+  background-color: #1A76FB;
+  color: #fff;
+  border-color: #1A76FB;
+}
+
+.side:hover {
+  cursor: pointer;
+}
+
+.content {
+  font-size: 20px;
+  color: #ab0b6b;
+  font-weight: 500;
+}
+
+.side {
+  font-size: 14px;
+}
+
+.label-filter {
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.card-title {
+  font-weight: 700;
+  color: #ab0b6b;
+}
+
+.icon-heart:hover {
+  cursor: pointer;
+}
+
+.icon-hearted {
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.btn1 {
+  border-color: #ab0b6b;
+  background-color: #ab0b6b;
+  color: #fff;
+  width: 100px;
+  border-radius: 25px;
+}
+
+.btn1:hover {
+  border-color: #fff;
+  background-color: #fff;
+  color: #ab0b6b;
+  width: 100px;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.carousel .carousel-item {
+  height: 300px;
+}
+
+.carousel-item img {
+  position: absolute;
+  object-fit: contain;
+  top: 0;
+  left: 0;
+}
+
+.btn-purple {
+  color: #B90060;
+  border-color: #B90060;
+}
+
+.btn-purple:hover {
+  color: #fff;
+  background-color: #B90060;
+}
+
+.dropdown-item:hover {
+  cursor: pointer;
+  background-color: #B90060;
+  color: #fff;
+}
+
+.radisBtn {
+  border-radius: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.label-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ab0b6b;
+}
+
+.btn-8 {
+  color: #0077F6;
+  background-color: #fff;
+}
+
+.ex:hover{
+  cursor: pointer;
+}

@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Chicle&display=swap');
+/* font-family: 'Chicle', cursive; */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+/* font-family: 'Quicksand', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+/* font-family: 'Rubik', sans-serif; */
+
+
+/* ================ buton social media ================== */
+
+/* Style all font awesome icons */
+.fa {
+  padding: 10px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-google {
+  background: #CC342E;
+  color: white;
+}
+
+/* Twitter */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+/* ============= buton social media =================== */
+
+.titleLogin {
+  /* font-family: 'Chicle', cursive; */
+  font-family: 'Rubik', sans-serif;
+}
+
+/* ===== Bg Login =======*/
+
+.padingRegis {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.BorRegis {
+  border-radius: 50px;
+}
+
+.btnSignInUp {
+  border-color: rgb(182,74,124);
+  color: rgb(182,74,124);
+  border-radius: 50px;
+}
+
+.btnSignInUp:hover {
+  background-color: rgb(182,74,124);
+  color: white;
+}
