@@ -10,7 +10,7 @@ function FooterComponent(props) {
           <img style={{ height: '30px', marginLeft: '10px' }} src={'./logoName.png'} alt={'logo Adopt.Us'}></img>
         </div>
         <div>
-          <h5 style={{ color: '#B43D66' }} className="mt-1 my-0">©2020 Adopt.Us</h5>
+          <h6 style={{ color: '#B43D66' }} className="align-middle mt-2 text-dark">©2020 Adopt.Us</h6>
         </div>
         <div>
           <img style={{ width: '30px', marginRight: '10px' }} src={'https://image.flaticon.com/icons/png/512/25/25231.png'} alt={'github'}></img>

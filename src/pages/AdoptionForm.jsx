@@ -69,7 +69,7 @@ function FormAdoptionPage(props) {
             <form className="p-4" onSubmit={handleSubmitForm}>
               <div className="p-4 d-flex justify-content-between">
                 <h1 className="titleLogin text-start my-5">Form Adoption</h1>
-                <img src={'./adoptUs.png'} alt={'Adopt.Us'}></img>
+                <img src={'https://i.ibb.co/5cVVJgT/adoptUs.png'} alt={'Adopt.Us'}></img>
               </div>
               <div className="px-1 d-flex justify-content-between">
                 <label style={{ fontSize: '15px', color: '#748596' }}><strong style={{ color: 'red' }}>*</strong> First Name</label>

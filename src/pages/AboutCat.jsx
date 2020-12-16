@@ -10,7 +10,7 @@ export default function AboutCat() {
 
   return (
     <>
-      <div className="container pt-5 pb-3">
+      <div className="container py-5 pb-3">
         <div className="row">
           <div className="col-8 shadow" style={{backgroundColor: '#fff', borderRadius: '15px'}}>
             <h3 className="pt-3 pb-3" style={{color: 'gray'}}>10 Facts That You Must Know About Cat</h3>
@@ -58,7 +58,7 @@ export default function AboutCat() {
             </ol>
             <small>source: <a href="https://www.thedrakecenter.com/services/dogs/blog/23-amazing-facts-about-dogs-you-probably-didnt-know">23 Amazing Facts About Dog</a></small>
           <div className="col-12">
-              <button onClick={() => goToLandingPage()} className="btn btn-8 btn-primary btn-lg mt-2 mb-3"><span className="fas fa-cat pr-3"></span>Adopt Us</button>
+              <button style={{ borderRadius: '20px' }} onClick={() => goToLandingPage()} className="btn btn-8 btn-primary btn-lg my-3"><span className="fas fa-cat pr-3"></span>Adopt Us</button>
           </div>
           </div>
           <div className="col-4">
