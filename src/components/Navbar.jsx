@@ -89,7 +89,7 @@ export default function Navbar() {
           <div className="container-fluid">
             <p className="navbar-brand m-0">
               <Link to="/">
-                <img onClick={() => backToHome()} src={"./adoptUs.png"} alt="Adopt.Us" width="60" height="60" />
+                <img onClick={() => backToHome()} src={"https://i.ibb.co/5cVVJgT/adoptUs.png"} alt="Adopt.Us" width="60" height="60" />
               </Link>
             </p>
             <div>
