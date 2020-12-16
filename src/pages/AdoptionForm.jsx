@@ -3,6 +3,7 @@ import '../style/css/form_adoption-page.css'
 import { handleAdoptionForm } from '../store/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import { Swal } from '../config/swal'
 
 function FormAdoptionPage({ location }) {
   const history = useHistory()
@@ -41,9 +42,15 @@ function FormAdoptionPage({ location }) {
 
   const handleSubmitForm = async (event) => {
     event.preventDefault()
-    await dispatch(handleAdoptionForm(pet_detail, formInput, account))
-
-    history.push('/')
+    if (formInput.signature === `${formInput.first_name} ${formInput.last_name}`) {
+      await dispatch(handleAdoptionForm(pet_detail, formInput, account))
+      history.push('/')
+    } else {
+      await Swal.fire({
+        icon: 'warning',
+        title: 'Signature must match your first and last name.'
+      })
+    }
   }
 
   return (
@@ -137,6 +144,7 @@ function FormAdoptionPage({ location }) {
                 className="BorRegis form-control my-3"
                 value={formInput.hours_pet_alone}
                 required
+                min="0"
                 >
               </input>
 

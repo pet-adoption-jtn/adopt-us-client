@@ -1,5 +1,5 @@
 import axios from '../config/axios'
-import { Toast } from '../config/swal'
+import { Swal, Toast } from '../config/swal'
 
 export function googleSignIn(googleToken) {
   return axios({
@@ -10,32 +10,16 @@ export function googleSignIn(googleToken) {
 }
 
 export function userSignUp(dataSignUp) {
-  return async (dispatch) => {
-    try {
-      const { data } = await axios({
-        method: 'POST',
-        url: '/register',
-        data: dataSignUp
-      })
-      if (data) {
-        Toast.fire({
-          icon: 'success',
-          title: 'Sign up success full'
-        })
-      }
-    } catch (err) {
-      Toast.fire({
-        icon: 'error',
-        title: err.message || 'Oops, Error'
-      })
-      console.log(err)
-    }
-  }
+  return axios({
+    method: 'POST',
+    url: '/register',
+    data: dataSignUp
+  })
 }
 
 export function fetchAllPets (foo = {}) {
   const { type, color, gender, age } = foo
-  let query = []
+  const query = []
   if (type) {
     query.push(`type=${type}`)
   }
@@ -137,7 +121,12 @@ export function addToFavorite (pet_id) {
         title: 'added to favorites'
       })
     } catch (error) {
-      console.log(error); 
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops..',
+        text: error.response.data.message || 'Something Went Wrong'
+      })
+      console.log(error.response); 
     }
   }
 }
@@ -176,10 +165,18 @@ export function addNewPet(newPet) {
     })
       .then(({ data }) => {
         dispatch({
-          type: ''
+          type: 'ADD_OWNERS_PETS',
+          payload: data
         })
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.log(err.response);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops',
+          text: err.response.data.message || 'Something Went Wrong'
+        })
+      })
   }
 }
 
@@ -198,14 +195,21 @@ export function deletePet(id) {
             type: 'DELETE_PET',
             payload: id
           })
+          Toast.fire({
+            icon: 'success',
+            title: data.message
+          })
         })
-        .catch(console.log)
+        .catch((err) => {
+          console.log(err.response);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops',
+            text: err.response.data.message || 'Something Went Wrong'
+          })
+        })
     }
   }
-
-export function requestAdoption (payload) {
-
-}
 
 export function adoptPet({ pet, status, person: adopter }) {
   return (dispatch) => {
@@ -223,9 +227,23 @@ export function adoptPet({ pet, status, person: adopter }) {
       }
     })
       .then(({ data }) => {
-        console.log(data)
+        Toast.fire({
+          icon: 'success',
+          title: 'Message delivered to adopter'
+        })
+        dispatch({
+          type: 'EDIT_OWNER_PET',
+          payload: data.data
+        })
       })
-      .catch(console.log)
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops',
+          text: err.response.data.message || 'Something Went Wrong'
+        })
+      })
   }
 }
 
@@ -253,7 +271,14 @@ export function removeFavorites (id) {
           payload: id
         })
       })
-      .catch(console.log)
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops',
+          text: err.response.data.message || 'Something Went Wrong'
+        })
+      })
   }
 }
 
@@ -274,11 +299,18 @@ export function handleAdoptionForm(pet_detail, form_data, adopter) {
       }
     })
       .then(({ data }) => {
-        console.log(data)
+        Toast.fire({
+          icon: 'success',
+          title: data.message
+        })
       })
-      .catch(console.log)
-      .finally(() => {
-        console.log('loading')
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops',
+          text: err.response.data.message || 'Something Went Wrong'
+        })
       })
   }
 }
