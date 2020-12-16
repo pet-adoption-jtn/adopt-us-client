@@ -17,10 +17,11 @@ import {
   NavBar,
   Footer
 } from './components';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
   const dispatch = useDispatch()
+  const { access_token } = useSelector(state => state)
   useEffect(() => {
     const access_token = localStorage.getItem('access_token')
     const account = localStorage.getItem('account')
@@ -45,17 +46,17 @@ function App() {
         <Route path="/about/cat" component={AboutCat} />
         <Route path="/adopt/:id">
           {
-            localStorage.access_token ? <FormAdoptionPage/> : <Redirect to="/signin" />
+            access_token ? <FormAdoptionPage/> : <Redirect to="/signin" /> 
           }
         </Route>
         <Route path="/favorites">
           {
-            localStorage.access_token ?  <FavoritePage/> : <Redirect to="/signin"/>
+            access_token ? <FavoritePage/>: <Redirect to="/signin"/>
           }
         </Route>
         <Route path="/profile">
           {
-            localStorage.access_token ?  <Profile/> : <Redirect to="/signin"/>
+            access_token ?  <Profile/> : <Redirect to="/signin"/> 
           }
         </Route>
       </Switch> 

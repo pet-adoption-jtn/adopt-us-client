@@ -4,12 +4,13 @@ import { getDetails, handleAdoptionForm } from '../store/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
 import { Swal } from '../config/swal'
+import { Loading } from '../components'
 
 function FormAdoptionPage(props) {
   const { id } = useParams()
   const history = useHistory()
   const dispatch = useDispatch()
-  const { account, pet_detail } = useSelector(state => state)
+  const { account, pet_detail, load_detail } = useSelector(state => state)
   const [formInput, setFormInput] = useState({
     first_name: '',
     last_name: '',
@@ -56,6 +57,8 @@ function FormAdoptionPage(props) {
       })
     }
   }
+
+  if (load_detail) return <Loading/>
 
   return (
   <div>

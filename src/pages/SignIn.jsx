@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { Toast } from '../config/swal'
+import { Toast, Swal } from '../config/swal'
 import { signIn, googleSignIn } from '../store/actions'
 import { useDispatch } from 'react-redux'
 import { GoogleLogin } from 'react-google-login'
@@ -44,7 +44,13 @@ function LoginPage(props) {
         })
         history.push('/')
       })
-      .catch(console.log)
+      .catch(err => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops..',
+          text: err.response.data.message || 'Something Went Wrong'
+        })
+      })
   }
 
   const responseGoogle = (response) => {
@@ -68,7 +74,13 @@ function LoginPage(props) {
       })
       history.push('/')
     })
-    .catch(console.log)
+    .catch((err) => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops..',
+        text: err.response.data.message || 'Something Went Wrong'
+      })
+    })
   }
 
   return (
