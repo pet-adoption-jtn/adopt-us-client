@@ -1,20 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../style/css/form_adoption-page.css'
-import { handleAdoptionForm } from '../store/actions'
+import { getDetails, handleAdoptionForm } from '../store/actions'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
+import { Swal } from '../config/swal'
 
-function FormAdoptionPage({ location }) {
+function FormAdoptionPage(props) {
+  const { id } = useParams()
   const history = useHistory()
   const dispatch = useDispatch()
-  const { pet_detail } = location.state
-  const { account } = useSelector(state => state)
+  const { account, pet_detail } = useSelector(state => state)
   const [formInput, setFormInput] = useState({
     first_name: '',
     last_name: '',
-    address: '',
-    phone_number: '',
-    email: '',
+    address: account.address,
+    phone_number: account.phone,
+    email: account.email,
     pet_name: pet_detail.name,
     hours_pet_alone: 0,
     crate_pet: null,
@@ -29,6 +30,10 @@ function FormAdoptionPage({ location }) {
     signature: ''
   })
 
+  useEffect(() => {
+    dispatch(getDetails(id))
+  }, [dispatch, id])
+
   function handleChange (e) {
     let name = e.target.name
     let value = e.target.value
@@ -41,13 +46,19 @@ function FormAdoptionPage({ location }) {
 
   const handleSubmitForm = async (event) => {
     event.preventDefault()
-    await dispatch(handleAdoptionForm(pet_detail, formInput, account))
-
-    history.push('/')
+    if (formInput.signature === `${formInput.first_name} ${formInput.last_name}`) {
+      await dispatch(handleAdoptionForm(pet_detail, formInput, account))
+      history.push('/')
+    } else {
+      await Swal.fire({
+        icon: 'warning',
+        title: 'Signature must match your first and last name.'
+      })
+    }
   }
 
   return (
-  <div className="">
+  <div>
     <div className="container my-5">
       <div className="row justify-content-center">
         <div className=" padingRegis col-12">

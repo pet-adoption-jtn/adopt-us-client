@@ -3,7 +3,6 @@ import { FilterDropdowns, Cards, Loading } from '../components';
 import { fetchAllPets } from '../store/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { AboutCat } from '.';
 
 export default function Landing() {
   const dispatch = useDispatch()

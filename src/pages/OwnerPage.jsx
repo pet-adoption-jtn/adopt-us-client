@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom'
 export default function OwnerPage (props) {
   const dispatch = useDispatch()
   const history = useHistory()
-  const { owners_pets, account } = useSelector(state => state)
+  const { owners_pets } = useSelector(state => state)
   
 
   useEffect(() => {
@@ -31,8 +31,28 @@ export default function OwnerPage (props) {
     }
   }
 
-  function handleAdoptPet(payload) {
-    dispatch(adoptPet(payload))
+  async function handleAdoptPet(payload) {
+    if (payload.status) {
+      const res = await Swal.fire({
+        icon: 'warning',
+        title: 'Do you want to approve this request ?',
+        showCancelButton: true,
+        confirmButtonText: 'Approve'
+      })
+      if (res.isConfirmed) {
+        await dispatch(adoptPet(payload))
+      }
+    } else {
+      const res = await Swal.fire({
+        icon: 'warning',
+        title: 'You will cancel this request',
+        showCancelButton: true,
+        confirmButtonText: 'Yes'
+      })
+      if (res.isConfirmed) {
+        await dispatch(adoptPet(payload))
+      }
+    }
   }
 
   return (

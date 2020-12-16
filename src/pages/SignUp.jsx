@@ -1,12 +1,11 @@
 import '../style/css/register-page.css'
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { userSignUp } from '../store/actions'
+import { Toast } from '../config/swal'
 
 function RegisterPage(props) {
   const history = useHistory()
-  const dispatch = useDispatch()
   const[dataSignUp, setDataSignUp] = useState({
     username: '',
     email: '',
@@ -31,8 +30,20 @@ function RegisterPage(props) {
   
   function handleSubmitSignUp(e) {
     e.preventDefault()
-    dispatch(userSignUp(dataSignUp))
-    history.push('/signin')
+    userSignUp(dataSignUp)
+      .then(({ data }) => {
+        Toast.fire({
+          icon: 'success',
+          title: 'Successfully Signed Up'
+        })
+        history.push('/signin')
+      })
+      .catch((err) => {
+        Toast.fire({
+          icon: 'error',
+          title: err.response.data.message || 'Oops, Error'
+        })
+      })
   }
 
   return (
@@ -93,10 +104,8 @@ function RegisterPage(props) {
               </form>
               <hr/>
               <div>
-                {/* <a style={{ textDecoration: 'none' }} className="fa fa-google mx-3"></a>
-                <a style={{ textDecoration: 'none' }} className="fa fa-facebook mx-3"></a> */}
                 <div>
-                  <p className="mt-2">Already have an account ? <strong><a onClick={() => handleChangePage('/signin')} style={{ textDecoration: 'none', color: 'blue' }}>Sign in</a></strong></p>
+                  <p className="mt-2">Already have an account ? <strong><span onClick={() => handleChangePage('/signin')} style={{ textDecoration: 'none', color: 'blue' }}>Sign in</span></strong></p>
                 </div>
               </div>
             </div>

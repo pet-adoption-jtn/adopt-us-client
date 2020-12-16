@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { updateProfile } from '../store/actions';
 
 export default function Profile () {
+  const dispatch = useDispatch()
   const { account } = useSelector(state => state)
   const[dataProfile, setDataProfile] = useState({
     username: account.username,
@@ -18,17 +20,11 @@ export default function Profile () {
       ...dataProfile,
       [key]: value
     })
-
-    console.log({
-      ...dataProfile,
-      [key]: value
-    })
   }
 
   function handleSubmitProfile(e) {
     e.preventDefault()
-
-    console.log(dataProfile)
+    dispatch(updateProfile(dataProfile))
   }
 
 

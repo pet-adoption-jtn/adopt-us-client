@@ -13,7 +13,9 @@ export default function AddPetPage(props) {
     age: 'baby',
     gender: 'male',
     color: '',
-    pictures: ''
+    pic1: '',
+    pic2: '',
+    pic3: ''
   })
 
   function handleChange(e) {
@@ -28,9 +30,16 @@ export default function AddPetPage(props) {
 
   async function handleSubmit(e) {
     e.preventDefault()
+    const pictures = [form_input.pic1]
+    if (form_input.pic2) {
+      pictures.push(form_input.pic2)
+    }
+    if (form_input.pic3) {
+      pictures.push(form_input.pic3)
+    }
     await dispatch(addNewPet({
       ...form_input,
-      pictures: form_input.pictures.split(', ')
+      pictures
     }))
     history.push('/myPets')
   }
@@ -124,15 +133,36 @@ export default function AddPetPage(props) {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="pictures">Pictures</label>
-          <textarea 
+          <label htmlFor="pic1">Picture 1</label>
+          <input 
             type="text" 
-            name="pictures" 
-            id="pictures" 
-            multiple 
+            name="pic1" 
+            id="pic1" 
+            required 
             className="form-control"
-            placeholder="if more than 1 pictures use a comma (ex: pic1, pic2)"
-            value={form_input.pictures}
+            value={form_input.pic1}
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="pic2">Picture 2</label>
+          <input 
+            type="text" 
+            name="pic2" 
+            id="pic2"
+            className="form-control"
+            value={form_input.pic2}
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="pic3">Picture 3</label>
+          <input 
+            type="text" 
+            name="pic3" 
+            id="pic3"
+            className="form-control"
+            value={form_input.pic3}
             onChange={(e) => handleChange(e)}
           />
         </div>
