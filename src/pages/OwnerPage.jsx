@@ -57,7 +57,7 @@ export default function OwnerPage (props) {
 
   return (
     <>
-    <div className="container my-5">
+    <div className="container my-5 w3-animate-opacity">
       <h1 className="mb-3 titleFavorites">Your Pets</h1>
       <button className="btn btn-outline-success mb-3 radisBtn" onClick={() => history.push('/addPet')}><span className="fas fa-paw"></span>  Add a new Pet</button>
       <table className="table text-center">

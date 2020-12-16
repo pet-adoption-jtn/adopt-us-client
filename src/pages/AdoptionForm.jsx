@@ -64,7 +64,7 @@ function FormAdoptionPage(props) {
   <div>
     <div className="container my-5">
       <div className="row">
-        <div className=" padingRegis d-flex justify-content-center">
+        <div className=" padingRegis d-flex justify-content-center w3-animate-opacity">
           <div className="w3-card-4 p-3 bg-light" style={{ borderRadius: '10px', width: '70%' }}>
             <form className="p-4" onSubmit={handleSubmitForm}>
               <div className="p-4 d-flex justify-content-between">
