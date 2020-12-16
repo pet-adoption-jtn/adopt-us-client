@@ -1,21 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../style/css/form_adoption-page.css'
-import { handleAdoptionForm } from '../store/actions'
+import { getDetails, handleAdoptionForm } from '../store/actions'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { Swal } from '../config/swal'
 
-function FormAdoptionPage({ location }) {
+function FormAdoptionPage(props) {
+  const { id } = useParams()
   const history = useHistory()
   const dispatch = useDispatch()
-  const { pet_detail } = location.state
-  const { account } = useSelector(state => state)
+  const { account, pet_detail } = useSelector(state => state)
   const [formInput, setFormInput] = useState({
     first_name: '',
     last_name: '',
-    address: '',
-    phone_number: '',
-    email: '',
+    address: account.address,
+    phone_number: account.phone,
+    email: account.email,
     pet_name: pet_detail.name,
     hours_pet_alone: 0,
     crate_pet: null,
@@ -29,6 +29,10 @@ function FormAdoptionPage({ location }) {
     reason: '',
     signature: ''
   })
+
+  useEffect(() => {
+    dispatch(getDetails(id))
+  }, [dispatch, id])
 
   function handleChange (e) {
     let name = e.target.name
@@ -140,11 +144,11 @@ function FormAdoptionPage({ location }) {
               <input
                 onChange={handleChange}
                 name="hours_pet_alone"
+                min='0'
                 type="number" 
                 className="BorRegis form-control my-3"
                 value={formInput.hours_pet_alone}
                 required
-                min="0"
                 >
               </input>
 

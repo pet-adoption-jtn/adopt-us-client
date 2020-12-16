@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import { 
   DetailPage, 
   OwnerPage, 
@@ -39,13 +39,25 @@ function App() {
         <Route path="/pet/:id" component={ DetailPage }/>
         <Route path="/myPets" component={ OwnerPage }/>
         <Route path="/addPet" component={ AddPetPage } />
-        <Route path="/formadoption" component={ FormAdoptionPage } />
-        <Route path="/favorites" component={ FavoritePage } />
         <Route path="/signup" component={ SignUpPage } />
         <Route path="/signin" component={ SignInPage } />
         <Route path="/about/dog" component={AboutDog} />
         <Route path="/about/cat" component={AboutCat} />
-        <Route path="/profile" component={Profile} />
+        <Route path="/adopt/:id">
+          {
+            localStorage.access_token ? <Redirect to="/signin" /> : <FormAdoptionPage/>
+          }
+        </Route>
+        <Route path="/favorites">
+          {
+            localStorage.access_token ? <Redirect to="/signin"/> : <FavoritePage/>
+          }
+        </Route>
+        <Route path="/profile">
+          {
+            localStorage.access_token ? <Redirect to="/signin"/> : <Profile/>
+          }
+        </Route>
       </Switch> 
       <Footer/>
     </>

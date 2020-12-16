@@ -1,6 +1,41 @@
 import axios from '../config/axios'
 import { Swal, Toast } from '../config/swal'
 
+export function updateProfile (payload) {
+  return (dispatch) => {
+    const access_token = localStorage.getItem('access_token')
+    axios({
+      method: 'POST',
+      url: '/edituser',
+      headers: {
+        access_token
+      },
+      data: payload
+    })
+      .then(({ data }) => {
+        dispatch({
+          type: 'SET_ACCESS_TOKEN',
+          payload: data.access_token
+        })
+        dispatch({
+          type: 'SET_ACCOUNT',
+          payload: data.account
+        })
+      })
+      Toast.fire({
+        icon: 'success',
+        title: 'Your profile has been updated!'
+      })
+      .catch(err => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops..',
+          text: err.response.data.message || 'Something Went Wrong'
+        })
+      })
+  }
+}
+
 export function googleSignIn(googleToken) {
   return axios({
     method: 'POST',

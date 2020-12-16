@@ -22,8 +22,9 @@
   padding-top: 5px;
   padding-bottom: 5px;
   /* background-color: black; */
-  background-color: rgb(180,61,102);
-  color: white;
+  background-color: white;
+  color: rgb(180,61,102);
+  border-color: rgb(180,61,102);
 }
 
 .btnFav:hover {

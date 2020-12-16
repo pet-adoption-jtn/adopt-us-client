@@ -38,7 +38,7 @@ function FavoritesPage(props) {
                       <h5 className="text-dark" style={{ padding: '5px', borderRadius: '10px' }}>{fav.Pet.age}</h5>
                       <h5 style={{ backgroundColor: 'rgb(180,61,102)', color: 'white', padding: '5px', borderRadius: '10px' }}>{fav.Pet.breed}</h5>
                     </div>
-                    <button onClick={() => history.push(`/pet/${fav.pet_id}`)} className="btn my-4 btnFav">Ask About me</button>
+                    <button onClick={() => history.push(`/pet/${fav.pet_id}`)} className="btn my-4 btnFav"><span className="fas fa-paw"></span> Ask About me</button>
                   </div>
                 </div>
               ))

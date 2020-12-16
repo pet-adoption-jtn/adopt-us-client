@@ -20,7 +20,7 @@ export default function DetailPage (props) {
   function handleAdoptButton () {
     const access_token = localStorage.getItem('access_token')
     if (access_token) {
-      history.push('/formadoption', { pet_detail })
+      history.push(`/adopt/${pet_detail._id}`)
     } else {
       history.push('/signin')
       Swal.fire({
