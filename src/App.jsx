@@ -11,7 +11,8 @@ import {
   SignUpPage,
   AboutCat,
   AboutDog,
-  Profile
+  Profile,
+  EditPetPage
 } from './pages'
 import { 
   NavBar,
@@ -42,8 +43,9 @@ function App() {
         <Route path="/addPet" component={ AddPetPage } />
         <Route path="/signup" component={ SignUpPage } />
         <Route path="/signin" component={ SignInPage } />
-        <Route path="/about/dog" component={AboutDog} />
-        <Route path="/about/cat" component={AboutCat} />
+        <Route path="/about/dog" component={ AboutDog } />
+        <Route path="/about/cat" component={ AboutCat } />
+        <Route path="/editpet" component={ EditPetPage }/>
         <Route path="/adopt/:id">
           {
             access_token ? <FormAdoptionPage/> : <Redirect to="/signin" /> 

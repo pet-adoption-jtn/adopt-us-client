@@ -9,7 +9,7 @@ export default function AboutDog() {
   }
   return (
     <>
-      <div className="container pt-5 pb-3">
+      <div className="container py-5 pb-3">
         <div className="row">
           <div className="col-8 shadow" style={{backgroundColor: '#fff', borderRadius: '15px'}}>
             <h3 className="pt-3 pb-3" style={{color: 'gray'}}>10 Facts That You Must Know About Dog</h3>
@@ -57,22 +57,22 @@ export default function AboutDog() {
             </ol>
             <small>source: <a href="https://www.thedrakecenter.com/services/dogs/blog/23-amazing-facts-about-dogs-you-probably-didnt-know">23 Amazing Facts About Dog</a></small>
             <div className="col-12">
-              <button onClick={() => goToLandingPage()} className="btn btn-8 btn-primary btn-lg mt-2 mb-3"><span className="fas fa-dog pr-3"></span>Adopt Us</button>
+              <button style={{ borderRadius: '20px' }} onClick={() => goToLandingPage()} className="btn btn-8 btn-primary btn-lg my-3"><span className="fas fa-dog pr-3"></span>Adopt Us</button>
           </div>
           </div>
           <div className="col-4">
             <div className="columns" style={{paddingTop: '5px'}}>
               <div className="col-4">
-                <img className="rounded shadow" src="https://www.rd.com/wp-content/uploads/2019/01/shutterstock_673465372.jpg" style={{width: '350px', marginBottom: '50px'}} alt=""/>
+                <img className="rounded shadow" src="https://www.rd.com/wp-content/uploads/2019/01/shutterstock_673465372.jpg" style={{width: '350px', marginBottom: '50px'}} alt="dog"/>
               </div>
               <div className="col-4">
                 <img className="rounded shadow" src="https://lh3.googleusercontent.com/proxy/HTWVBB5xjLxPGP5uW9mfGcqLRYirbMf-ojezB9SMGlM6xkGOsdRkvOeYNYBp56hjiwa5m3GiOXNadgSGe-gZcE9ITD48ieqMb4PMoKkJ" alt="" width="350px" style={{marginBottom: '50px'}} />
               </div>
               <div className="col-4">
-                <img className="rounded shadow" src="https://filmdaily.co/wp-content/uploads/2020/05/dog-videos-lede-1300x868.jpg" width="350px" alt="" style={{marginBottom: '50px'}} />
+                <img className="rounded shadow" src="https://filmdaily.co/wp-content/uploads/2020/05/dog-videos-lede-1300x868.jpg" width="350px" alt="dog" style={{marginBottom: '50px'}} />
               </div>
               <div className="col-4">
-                <img className="rounded shadow" src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16B90/production/_107427039_gettyimages-636475496.jpg" width="350px" alt=""/>
+                <img className="rounded shadow" src="https://ichef.bbci.co.uk/news/976/cpsprodpb/16B90/production/_107427039_gettyimages-636475496.jpg" width="350px" alt="dog"/>
               </div>
             </div>
           </div>

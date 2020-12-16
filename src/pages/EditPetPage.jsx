@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom'
-import { addNewPet } from '../store/actions'
+// import { useHistory } from 'react-router-dom'
 
-export default function AddPetPage(props) {
-  const dispatch = useDispatch()
-  const history = useHistory()
-  const [form_input, setInput] = useState({
+function EditPetPage(props) {
+  // const history = useHistory()
+  const [form_input_edit, setInputEdit] = useState({
     name: '',
     type: '',
     breed: '',
@@ -22,34 +19,34 @@ export default function AddPetPage(props) {
     let name = e.target.name
     let value = e.target.value
 
-    setInput({
-      ...form_input,
+    setInputEdit({
+      ...form_input_edit,
       [name]: value
     })
   }
 
   async function handleSubmit(e) {
     e.preventDefault()
-    const pictures = [form_input.pic1]
-    if (form_input.pic2) {
-      pictures.push(form_input.pic2)
-    }
-    if (form_input.pic3) {
-      pictures.push(form_input.pic3)
-    }
-    await dispatch(addNewPet({
-      ...form_input,
-      pictures
-    }))
-    history.push('/myPets')
+    console.log(form_input_edit, '<<<<<<<<')
+    // const pictures = [form_input_edit.pic1]
+    // if (form_input_edit.pic2) {
+    //   pictures.push(form_input_edit.pic2)
+    // }
+    // if (form_input_edit.pic3) {
+    //   pictures.push(form_input_edit.pic3)
+    // }
+    // await dispatch(addNewPet({
+    //   ...form_input_edit,
+    //   pictures
+    // }))
+    // history.push('/myPets')
   }
 
   return (
-    <>
-    <div className="container my-5 d-flex justify-content-center">
-      <form className="form p-5 border shadow-lg" style={{ borderRadius: '10px', width: '60%', backgroundColor:'#fff' }} onSubmit={e => handleSubmit(e)}>
+    <div className="container my-5">
+      <form className="form p-5 border shadow-lg" style={{ borderRadius: '10px' }}  onSubmit={(e) => handleSubmit(e)}>
         <div className="d-flex justify-content-between">
-          <h2 className="mt-4">Add Your Pet</h2>
+          <h2 className="mt-4">Edit Your Pet Data</h2>
           <img src={'./adoptUs.png'} alt={'Adopt.Us'}></img>
         </div>
         <div className="form-group">
@@ -60,7 +57,7 @@ export default function AddPetPage(props) {
             id="name"
             required
             className="form-control"
-            value={form_input.name}
+            value={form_input_edit.name}
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '20px' }}
           />
@@ -73,7 +70,7 @@ export default function AddPetPage(props) {
             className="form-control" 
             required 
             onChange={(e) => handleChange(e)} 
-            value={form_input.type}
+            value={form_input_edit.type}
             style={{ borderRadius: '20px' }}
           >
             <option selected disabled> </option> 
@@ -90,7 +87,7 @@ export default function AddPetPage(props) {
             id="breed" 
             required 
             className="form-control"
-            value={form_input.breed}
+            value={form_input_edit.breed}
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '20px' }}
           />
@@ -101,7 +98,7 @@ export default function AddPetPage(props) {
             name="gender" 
             id="gender"
             required
-            value={form_input.gender}
+            value={form_input_edit.gender}
             onChange={(e) => handleChange(e)}
             className="form-control"
             style={{ borderRadius: '20px' }}
@@ -119,7 +116,7 @@ export default function AddPetPage(props) {
             id="age" 
             className="form-control" 
             required
-            value={form_input.age}
+            value={form_input_edit.age}
             onChange={(e)=> handleChange(e)}
             style={{ borderRadius: '20px' }}
           >
@@ -138,7 +135,7 @@ export default function AddPetPage(props) {
             id="color" 
             className="form-control" 
             required
-            value={form_input.color}
+            value={form_input_edit.color}
             onChange={(e)=> handleChange(e)}
             style={{ borderRadius: '20px' }}
           >
@@ -159,7 +156,7 @@ export default function AddPetPage(props) {
             id="pic1" 
             required 
             className="form-control"
-            value={form_input.pic1}
+            value={form_input_edit.pic1}
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '20px' }}
           />
@@ -171,7 +168,7 @@ export default function AddPetPage(props) {
             name="pic2" 
             id="pic2"
             className="form-control"
-            value={form_input.pic2}
+            value={form_input_edit.pic2}
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '20px' }}
           />
@@ -183,7 +180,7 @@ export default function AddPetPage(props) {
             name="pic3" 
             id="pic3"
             className="form-control"
-            value={form_input.pic3}
+            value={form_input_edit.pic3}
             onChange={(e) => handleChange(e)}
             style={{ borderRadius: '20px' }}
           />
@@ -193,6 +190,7 @@ export default function AddPetPage(props) {
         </div>
       </form>
     </div>
-    </>
   )
 }
+
+export default EditPetPage
