@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+/* font-family: 'Mukta', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+/* font-family: 'Rubik', sans-serif; */
+.titleFavorites {
+  /* font-family: 'Mukta', sans-serif; */
+  font-family: 'Rubik', sans-serif;
+}
+
+.imgCard {
+  width: 100%;
+  height: 256px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  border-width: 0px;
+}
+
+.btnFav {
+  border-radius: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  /* background-color: black; */
+  background-color: white;
+  color: rgb(180,61,102);
+  border-color: rgb(180,61,102);
+}
+
+.btnFav:hover {
+  background-color: rgb(148, 51, 85);
+  color: white;
+}
+
+.infoCardFav {
+  /* background-color: rgb(180,61,102); */
+  margin-bottom: 30px;
+  padding: 10px;
+  /* color: white; */
+  color: rgb(180,61,102);
+  text-align: center;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.posisiImgFav {
+  position: relative;
+}
+
+.imgLoveFav {
+  height: 40px;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}

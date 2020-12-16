@@ -1,0 +1,14 @@
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+
+.btnSubmitAdop {
+  border-radius: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-top: 30px;
+}
