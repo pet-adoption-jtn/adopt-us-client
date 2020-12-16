@@ -198,10 +198,6 @@ export function addToFavorite (pet_id) {
 export function fetchOwnerPet() {
   return async (dispatch) => {
     try {
-      dispatch({
-        type: 'SET_LOADING_DATA',
-        payload: true
-      })
       const access_token = localStorage.getItem('access_token')
       const { data } = await axios({
         method: 'GET',
@@ -210,13 +206,9 @@ export function fetchOwnerPet() {
           access_token
         }
       })
-      dispatch({
+      await dispatch({
         type: 'SET_OWNER_PET',
         payload: data
-      })
-      dispatch({
-        type: 'SET_LOADING_DATA',
-        payload: false
       })
     } catch (error) {
       console.log(error);
@@ -334,10 +326,6 @@ export function signIn(payload) {
 export function removeFavorites (id) {
   const access_token = localStorage.getItem('access_token')
   return (dispatch) => {
-    dispatch({
-      type: 'SET_LOADING_DATA',
-      payload: true
-    })
     axios({
       method: 'DELETE',
       url: `/favorites/${id}`,
@@ -349,10 +337,6 @@ export function removeFavorites (id) {
         dispatch({
           type: 'REMOVE_FAVORITES',
           payload: id
-        })
-        dispatch({
-          type: 'SET_LOADING_DATA',
-          payload: false
         })
       })
       .catch((err) => {

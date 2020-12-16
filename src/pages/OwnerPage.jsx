@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchOwnerPet, deletePet, adoptPet } from '../store/actions'
-import { Swal } from '../config/swal'
+import { Swal, Toast } from '../config/swal'
 import { useHistory } from 'react-router-dom'
-import { Loading } from '../components'
 
 export default function OwnerPage (props) {
   const dispatch = useDispatch()
   const history = useHistory()
-  const { owners_pets, loading } = useSelector(state => state)
+  const { owners_pets } = useSelector(state => state)
   
 
   useEffect(() => {
@@ -25,6 +24,10 @@ export default function OwnerPage (props) {
     })     
     if (res.isConfirmed) {
       await dispatch(deletePet(pet_id))
+      Toast.fire({
+        icon: 'success',
+        title: 'deleted'
+      })
     }
   }
 
@@ -51,8 +54,6 @@ export default function OwnerPage (props) {
       }
     }
   }
-
-  if (loading) return <Loading />
 
   return (
     <>

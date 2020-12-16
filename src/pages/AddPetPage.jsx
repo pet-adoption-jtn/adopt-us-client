@@ -103,7 +103,7 @@ export default function AddPetPage(props) {
             required
             value={form_input.gender}
             onChange={(e) => handleChange(e)}
-            className="form-select"
+            className="form-control"
             style={{ borderRadius: '20px' }}
           >
             <option selected disabled> </option> 
@@ -117,7 +117,7 @@ export default function AddPetPage(props) {
           <select 
             name="age" 
             id="age" 
-            className="form-select" 
+            className="form-control" 
             required
             value={form_input.age}
             onChange={(e)=> handleChange(e)}
@@ -136,7 +136,7 @@ export default function AddPetPage(props) {
           <select 
             name="color" 
             id="color" 
-            className="form-select" 
+            className="form-control" 
             required
             value={form_input.color}
             onChange={(e)=> handleChange(e)}
@@ -146,7 +146,7 @@ export default function AddPetPage(props) {
             {/* bisa di hapus */}
             <option value="black">Black</option>
             <option value="white">White</option>
-            <option value="brown">Brown</option>
+            <option value="brwon">Brown</option>
             <option value="gold">Gold</option>
             <option value="grey">Grey</option>
           </select>
