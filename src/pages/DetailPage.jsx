@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
-import { getDetails, requestAdoption } from '../store/actions'
+import { addToFavorite, getDetails } from '../store/actions'
 import { Loading } from "../components";
 import { Swal } from '../config/swal';
 
@@ -20,7 +20,20 @@ export default function DetailPage (props) {
   function handleAdoptButton () {
     const access_token = localStorage.getItem('access_token')
     if (access_token) {
-      history.push('/formadoption', { pet_detail })
+      history.push(`/adopt/${pet_detail._id}`)
+    } else {
+      history.push('/signin')
+      Swal.fire({
+        icon: 'warning',
+        title: 'Please Sign In First'
+      })
+    }
+  }
+
+  function hanldeAddFavorite (pet) {
+    const access_token = localStorage.getItem('access_token') 
+    if (access_token) {
+      dispatch(addToFavorite(pet._id))
     } else {
       history.push('/signin')
       Swal.fire({
@@ -95,7 +108,7 @@ export default function DetailPage (props) {
             <div className="col-12">
               <div className="card">
                 <div className="card-body">
-                  <button className="btn btn-purple btn-block radisBtn">
+                  <button className="btn btn-purple btn-block radisBtn" onClick={() => hanldeAddFavorite(pet_detail)}>
                     <span className="fas fa-heart mr-2"></span>Favorite {pet_detail.name}
                   </button>
                   <br/>

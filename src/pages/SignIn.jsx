@@ -26,10 +26,8 @@ function LoginPage(props) {
 
   const handleSgnIn = (event) => {
     event.preventDefault()
-    let response;
     signIn(formInput)
       .then(({ data }) => {
-        response = data
         localStorage.setItem('access_token', data.access_token)
         localStorage.setItem('account', JSON.stringify(data.account))
         dispatch({
@@ -38,11 +36,11 @@ function LoginPage(props) {
         })
         dispatch({
           type: 'SET_ACCOUNT',
-          payload: response.account
+          payload: data.account
         })
         Toast.fire({
           icon: 'success',
-          title: 'Welcome!'
+          title: `Welcome ${data.account.username}!`
         })
         history.push('/')
       })
@@ -66,7 +64,7 @@ function LoginPage(props) {
       })
       Toast.fire({
         icon: 'success',
-        title: 'Welcome!'
+        title: `Welcome ${data.account.username}!`
       })
       history.push('/')
     })
@@ -117,10 +115,8 @@ function LoginPage(props) {
                   onFailure={responseGoogle}
                   cookiePolicy={'single_host_origin'}
                 />
-                {/* <a onClick={() => onSignIn('281372448495-9egpusn6t7nq49euno6bv5ffi9qesq2s.apps.googleusercontent.com')} style={{ textDecoration: 'none' }} className="fa fa-google mx-3"></a>
-                <a style={{ textDecoration: 'none' }} className="fa fa-facebook mx-3"></a> */}
                 <div>
-                  <p className="mt-2">Need an account? <strong><a onClick={() => history.push('/signup')} style={{ textDecoration: 'none', color: 'blue' }}>Sign up</a></strong></p>
+                  <p className="mt-2">Need an account? <strong><span onClick={() => history.push('/signup')} style={{ textDecoration: 'none', color: 'blue' }}>Sign up</span></strong></p>
                 </div>
               </div>
             </div>

@@ -2,9 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { fetchAllPets } from '../store/actions';
-import SignInPage from '../pages/SignIn'
-import SignUpPage from '../pages/SignUp'
 
 export default function Navbar() {
   const history = useHistory()
@@ -16,40 +13,28 @@ export default function Navbar() {
   }
 
   const signOut = () => {
+    localStorage.clear()
     dispatch({
       type: 'SET_ACCESS_TOKEN',
-      payload: null
+      payload: ''
     })
-    localStorage.clear()
+    dispatch({
+      type: 'SET_ACCOUNT',
+      payload: {}
+    })
     history.push('/')
   }
 
   const backToHome = () => {
-    dispatch(fetchAllPets())
+    history.push('/')
   }
 
   const goToProfile = () => {
-
     history.push('/profile')
   }
+
   return (
     <>
-      <div className="modal fade" id="Sing-in-Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div className="modal-dialog-centered modal-fullscreen">
-            <div style={{ backgroundColor: 'rgb(0, 0, 0, 0.5)' }} className="modal-content">
-              <SignInPage/>
-            </div>
-        </div>
-      </div>
-
-      <div className="modal fade" id="Sing-up-Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div className="modal-dialog-centered modal-fullscreen">
-            <div style={{ backgroundColor: 'rgb(0, 0, 0, 0.5)' }} className="modal-content">
-              <SignUpPage/>
-            </div>
-        </div>
-      </div>
-
       <nav className="navbar navbar-expand-lg shadow-lg" style={{paddingLeft: '100px', paddingRight: '100px'}}>
         <div className="container-fluid">
           <p className="navbar-brand m-0">
@@ -66,13 +51,13 @@ export default function Navbar() {
                 access_token
                 ? 
                 <li className="nav-item dropdown">
-                  <a className="content nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <a>{account.username}<i className='fas fa-user-alt' style={{paddingLeft: '5px', paddingRight: '5px'}}></i></a>
-                  </a>
+                  <span className="content nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span>{account.username}<i className='fas fa-user-alt' style={{paddingLeft: '5px', paddingRight: '5px'}}></i></span>
+                  </span>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a onClick={() => goToProfile()} className="dropdown-item">Profile</a></li>
-                    <li><a onClick={() => goToMyPets()} className="dropdown-item">MyPets</a></li>
-                    <li><a onClick={() => signOut()} className="dropdown-item">Sign Out</a></li>
+                    <li><span onClick={() => goToProfile()} className="dropdown-item">Profile</span></li>
+                    <li><span onClick={() => goToMyPets()} className="dropdown-item">MyPets</span></li>
+                    <li><span onClick={() => signOut()} className="dropdown-item">Sign Out</span></li>
                   </ul>
                 </li>
                 : 

@@ -30,7 +30,6 @@ function FavoritesPage(props) {
                 <div key={fav._id} className="col-4 pt-2">
                   <div className="posisiImgFav">
                     <img className="imgCard w3-card-4" src={fav.Pet.pictures[0]} alt={fav.Pet.name}/>
-                    {/* <img onClick={() => handleUnFavorites(fav._id)} className="imgLoveFav" src={'https://freeiconshop.com/wp-content/uploads/edd/heart-compact-flat-128x128.png'} alt={'Love'}/> */}
                     <p className="m-0" ><i onClick={() => handleUnFavorites(fav._id)} className="imgLoveFav icon-hearted shadow-lg fa fa-heart-o" style={{fontSize: '20px', fontWeight: '600', color: '#ce0d81'}}></i></p>
                   </div>
                   <div className="w3-card-4 infoCardFav">
@@ -39,7 +38,7 @@ function FavoritesPage(props) {
                       <h5 className="text-dark" style={{ padding: '5px', borderRadius: '10px' }}>{fav.Pet.age}</h5>
                       <h5 style={{ backgroundColor: 'rgb(180,61,102)', color: 'white', padding: '5px', borderRadius: '10px' }}>{fav.Pet.breed}</h5>
                     </div>
-                    <button onClick={() => history.push(`/pet/${fav.pet_id}`)} className="btn my-4 btnFav">Ask About me</button>
+                    <button onClick={() => history.push(`/pet/${fav.pet_id}`)} className="btn my-4 btnFav"><span className="fas fa-paw"></span> Ask About me</button>
                   </div>
                 </div>
               ))
