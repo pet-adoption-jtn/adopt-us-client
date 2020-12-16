@@ -45,17 +45,17 @@ function App() {
         <Route path="/about/cat" component={AboutCat} />
         <Route path="/adopt/:id">
           {
-            localStorage.access_token ? <Redirect to="/signin" /> : <FormAdoptionPage/>
+            localStorage.access_token ? <FormAdoptionPage/> : <Redirect to="/signin" />
           }
         </Route>
         <Route path="/favorites">
           {
-            localStorage.access_token ? <Redirect to="/signin"/> : <FavoritePage/>
+            localStorage.access_token ?  <FavoritePage/> : <Redirect to="/signin"/>
           }
         </Route>
         <Route path="/profile">
           {
-            localStorage.access_token ? <Redirect to="/signin"/> : <Profile/>
+            localStorage.access_token ?  <Profile/> : <Redirect to="/signin"/>
           }
         </Route>
       </Switch> 
