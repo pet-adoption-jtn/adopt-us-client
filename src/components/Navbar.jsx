@@ -13,16 +13,26 @@ export default function Navbar() {
   }
 
   const signOut = () => {
-    localStorage.clear()
     dispatch({
-      type: 'SET_ACCESS_TOKEN',
-      payload: ''
+      type: 'SET_LOADING_DATA',
+      payload: true
     })
-    dispatch({
-      type: 'SET_ACCOUNT',
-      payload: {}
-    })
-    history.push('/')
+    setTimeout(() => {
+      localStorage.clear()
+      dispatch({
+        type: 'SET_ACCESS_TOKEN',
+        payload: ''
+      })
+      dispatch({
+        type: 'SET_ACCOUNT',
+        payload: {}
+      })
+      dispatch({
+        type: 'SET_LOADING_DATA',
+        payload: false
+      })
+      history.push('/')
+    }, 2000);
   }
 
   const backToHome = () => {
